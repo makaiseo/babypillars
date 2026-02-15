@@ -9,81 +9,15 @@ export const metadata: Metadata = {
     "Expert insights on baby development, environment-first parenting, and milestone guidance from the BabyPillars team.",
 };
 
-const originalPosts = [
-  {
-    slug: "why-environment-matters-more-than-exercises",
-    title: "Why Environment Matters More Than Exercises",
-    excerpt:
-      "Most parents focus on drills and activities. But research shows that the right environment does more for development than any exercise routine.",
-    date: "February 10, 2026",
-    category: "Development",
-    readTime: "5 min read",
-    image: "/anat.jpg",
-  },
-  {
-    slug: "tummy-time-without-tears",
-    title: "Tummy Time Without the Tears",
-    excerpt:
-      "Tummy time doesn't have to be a battle. Learn how small environment changes can make your baby enjoy it naturally.",
-    date: "February 3, 2026",
-    category: "Practical Tips",
-    readTime: "4 min read",
-    image: "/anat.jpg",
-  },
-  {
-    slug: "when-should-my-baby-crawl",
-    title: "When Should My Baby Crawl? (And Why the Answer Might Surprise You)",
-    excerpt:
-      "Crawling timelines vary wildly. Here's what actually determines when your baby is ready and how to support that readiness.",
-    date: "January 27, 2026",
-    category: "Milestones",
-    readTime: "6 min read",
-    image: "/anat.jpg",
-  },
-  {
-    slug: "stop-comparing-milestones",
-    title: "Stop Comparing Milestones: Every Baby Has Their Own Timeline",
-    excerpt:
-      "Comparison is the thief of confidence. Understanding nervous system readiness can free you from the milestone anxiety trap.",
-    date: "January 20, 2026",
-    category: "Mindset",
-    readTime: "4 min read",
-    image: "/anat.jpg",
-  },
-  {
-    slug: "the-floor-is-your-babys-best-tool",
-    title: "The Floor Is Your Baby's Best Development Tool",
-    excerpt:
-      "Before you buy another toy, consider this: a clear floor space may be the single most important thing for your baby's motor development.",
-    date: "January 13, 2026",
-    category: "Environment",
-    readTime: "5 min read",
-    image: "/anat.jpg",
-  },
-  {
-    slug: "what-rolling-really-means",
-    title: "What Rolling Really Means for Your Baby's Development",
-    excerpt:
-      "Rolling isn't just a cute milestone. It's a sign of core strength, body awareness, and nervous system integration. Here's what to look for.",
-    date: "January 6, 2026",
-    category: "Milestones",
-    readTime: "5 min read",
-    image: "/anat.jpg",
-  },
-];
-
-const posts = [
-  ...originalPosts,
-  ...wpBlogPosts.map((p) => ({
-    slug: p.slug,
-    title: p.title,
-    excerpt: p.excerpt,
-    date: p.date,
-    category: p.category,
-    readTime: p.readTime,
-    image: p.image,
-  })),
-];
+const posts = wpBlogPosts.map((p) => ({
+  slug: p.slug,
+  title: p.title,
+  excerpt: p.excerpt,
+  date: p.date,
+  category: p.category,
+  readTime: p.readTime,
+  image: p.image,
+}));
 
 export default function BlogPage() {
   return (

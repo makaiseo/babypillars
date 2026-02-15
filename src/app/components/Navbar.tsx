@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navLinks = [
+  { href: "/babypillars-24-bundle", label: "Bundle" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/milestone-tracker", label: "Milestones" },
   { href: "/pricing", label: "Pricing" },
