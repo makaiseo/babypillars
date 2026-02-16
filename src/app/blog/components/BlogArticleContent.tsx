@@ -140,6 +140,8 @@ function stripWordPressJunk(html: string): string {
   html = html.replace(/<\/h1>/gi, "</h2>");
   // Clean up empty div wrappers at start
   html = html.replace(/^(\s*<div[^>]*>\s*)+(?=<[^d]|<div[^>]*(?:id|class))/i, "");
+  // Remove orphaned closing tags at the start (causes hydration mismatches)
+  html = html.replace(/^(\s*<\/[a-z][a-z0-9]*\s*>\s*)+/i, "");
   return html.trim();
 }
 
@@ -165,8 +167,9 @@ function parseHtmlContent(html: string): ParsedContent {
   }
 
   // Get content before first H2
-  const beforeFirst = html.substring(0, h2Matches[0].index);
-  if (beforeFirst.trim()) {
+  const beforeFirst = html.substring(0, h2Matches[0].index)
+    .replace(/^(\s*<\/[a-z][a-z0-9]*\s*>\s*)+/i, "").trim();
+  if (beforeFirst) {
     sections.push({ id: "intro", title: "", html: beforeFirst });
   }
 
@@ -176,7 +179,8 @@ function parseHtmlContent(html: string): ParsedContent {
     const nextMatch = h2Matches[i + 1];
     const startIdx = match.index! + match[0].length;
     const endIdx = nextMatch ? nextMatch.index! : html.length;
-    const sectionHtml = html.substring(startIdx, endIdx);
+    const sectionHtml = html.substring(startIdx, endIdx)
+      .replace(/^(\s*<\/[a-z][a-z0-9]*\s*>\s*)+/i, "").trim();
     const rawTitle = match[1].replace(/<[^>]*>/g, "").trim();
     const id = rawTitle
       .toLowerCase()
@@ -493,6 +497,7 @@ export default function BlogArticleContent({
               [&_li]:text-lg [&_li]:text-slate-700 [&_li]:leading-relaxed
               [&_img]:rounded-2xl [&_img]:shadow-md [&_img]:my-8 [&_img]:w-full
               [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-slate-600 [&_blockquote]:my-6"
+            suppressHydrationWarning
             dangerouslySetInnerHTML={{ __html: section.html }}
           />
         </div>
