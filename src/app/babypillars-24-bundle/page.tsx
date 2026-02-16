@@ -6,6 +6,17 @@ export const metadata: Metadata = {
   title: "BabyPillars Bundle 0-24 Months Platinum Video Course",
   description:
     "Welcome to Babypillars Bundle. This page is our 0-24 months platinum video course for parents and babies in the first 2 years of life.",
+  openGraph: {
+    title: "BabyPillars Bundle 0-24 Months Platinum Video Course",
+    description:
+      "Welcome to Babypillars Bundle. This page is our 0-24 months platinum video course for parents and babies in the first 2 years of life.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BabyPillars Bundle 0-24 Months Platinum Video Course",
+    description:
+      "Welcome to Babypillars Bundle. This page is our 0-24 months platinum video course for parents and babies in the first 2 years of life.",
+  },
 };
 
 const testimonials = [

@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   title: "Blog - BabyPillars",
   description:
     "Expert insights on baby development, environment-first parenting, and milestone guidance from the BabyPillars team.",
+  openGraph: {
+    title: "Blog - BabyPillars",
+    description:
+      "Expert insights on baby development, environment-first parenting, and milestone guidance from the BabyPillars team.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog - BabyPillars",
+    description:
+      "Expert insights on baby development, environment-first parenting, and milestone guidance from the BabyPillars team.",
+  },
 };
 
 const posts = wpBlogPosts.map((p) => ({

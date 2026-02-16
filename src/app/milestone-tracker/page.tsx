@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   title: "Free Milestone Tracker - BabyPillars",
   description:
     "Track your baby's milestones without pressure or guesswork. Our comprehensive 0-24 month tracker provides a clinical-grade roadmap simplified for real-life parenting.",
+  openGraph: {
+    title: "Free Milestone Tracker - BabyPillars",
+    description:
+      "Track your baby's milestones without pressure or guesswork. Our comprehensive 0-24 month tracker provides a clinical-grade roadmap simplified for real-life parenting.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Milestone Tracker - BabyPillars",
+    description:
+      "Track your baby's milestones without pressure or guesswork. Our comprehensive 0-24 month tracker provides a clinical-grade roadmap simplified for real-life parenting.",
+  },
 };
 
 export default function MilestoneTrackerPage() {

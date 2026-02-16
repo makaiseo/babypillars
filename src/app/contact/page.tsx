@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   title: "Contact BabyPillars - Here to Help",
   description:
     "Have a question about a developmental milestone, our workshops, or just want to say hello? Reach out and we'll support you on this journey.",
+  openGraph: {
+    title: "Contact BabyPillars - Here to Help",
+    description:
+      "Have a question about a developmental milestone, our workshops, or just want to say hello? Reach out and we'll support you on this journey.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact BabyPillars - Here to Help",
+    description:
+      "Have a question about a developmental milestone, our workshops, or just want to say hello? Reach out and we'll support you on this journey.",
+  },
 };
 
 export default function ContactPage() {

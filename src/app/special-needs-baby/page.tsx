@@ -8,6 +8,19 @@ export const metadata: Metadata = {
     "Special Needs Baby - The Ultimate Resource to Development Delays | BabyPillars",
   description:
     "A complete guide to your Special Needs Baby. If your baby is struggling to meet their developmental milestones, start here. Expert guidance from Anat Furstenberg.",
+  openGraph: {
+    title:
+      "Special Needs Baby - The Ultimate Resource to Development Delays | BabyPillars",
+    description:
+      "A complete guide to your Special Needs Baby. If your baby is struggling to meet their developmental milestones, start here. Expert guidance from Anat Furstenberg.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Special Needs Baby - The Ultimate Resource to Development Delays | BabyPillars",
+    description:
+      "A complete guide to your Special Needs Baby. If your baby is struggling to meet their developmental milestones, start here. Expert guidance from Anat Furstenberg.",
+  },
 };
 
 const conditions = [

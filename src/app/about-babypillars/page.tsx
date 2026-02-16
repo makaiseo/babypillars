@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   title: "About BabyPillars - Our Story & Mission",
   description:
     "Every parent deserves to feel like they have a roadmap. Learn about BabyPillars and founder Anat Furstenberg's mission to replace guessing with clarity.",
+  openGraph: {
+    title: "About BabyPillars - Our Story & Mission",
+    description:
+      "Every parent deserves to feel like they have a roadmap. Learn about BabyPillars and founder Anat Furstenberg's mission to replace guessing with clarity.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About BabyPillars - Our Story & Mission",
+    description:
+      "Every parent deserves to feel like they have a roadmap. Learn about BabyPillars and founder Anat Furstenberg's mission to replace guessing with clarity.",
+  },
 };
 
 export default function AboutPage() {

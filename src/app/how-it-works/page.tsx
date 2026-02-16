@@ -8,6 +8,17 @@ export const metadata: Metadata = {
   title: "BabyPillars - How the System Works",
   description:
     "Your roadmap from birth to 24 months. We take the noise of a thousand tips and turn them into a quiet, clear path forward.",
+  openGraph: {
+    title: "BabyPillars - How the System Works",
+    description:
+      "Your roadmap from birth to 24 months. We take the noise of a thousand tips and turn them into a quiet, clear path forward.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BabyPillars - How the System Works",
+    description:
+      "Your roadmap from birth to 24 months. We take the noise of a thousand tips and turn them into a quiet, clear path forward.",
+  },
 };
 
 export default function HowItWorksPage() {

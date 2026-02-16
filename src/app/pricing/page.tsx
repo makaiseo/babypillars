@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   title: "BabyPillars Pricing - Choose Your Path to Clarity",
   description:
     "Parenting shouldn't be a series of guesses. Get the expert system you need to support your baby's development with confidence and ease.",
+  openGraph: {
+    title: "BabyPillars Pricing - Choose Your Path to Clarity",
+    description:
+      "Parenting shouldn't be a series of guesses. Get the expert system you need to support your baby's development with confidence and ease.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BabyPillars Pricing - Choose Your Path to Clarity",
+    description:
+      "Parenting shouldn't be a series of guesses. Get the expert system you need to support your baby's development with confidence and ease.",
+  },
 };
 
 export default function PricingPage() {

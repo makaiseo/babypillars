@@ -10,6 +10,17 @@ const childSlugs = ["growth-spurts-in-babies"];
 export const metadata: Metadata = {
   title: landingPage?.title ? `${landingPage.title} - BabyPillars` : "Parent Learning Hub - BabyPillars",
   description: landingPage?.metaDescription || "",
+  openGraph: {
+    title: landingPage?.title ? `${landingPage.title} - BabyPillars` : "Parent Learning Hub - BabyPillars",
+    description: landingPage?.metaDescription || "",
+    ...(landingPage?.featuredImage && { images: [{ url: landingPage.featuredImage, width: 1200, height: 630, alt: landingPage?.title || "BabyPillars" }] }),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: landingPage?.title ? `${landingPage.title} - BabyPillars` : "Parent Learning Hub - BabyPillars",
+    description: landingPage?.metaDescription || "",
+    ...(landingPage?.featuredImage && { images: [landingPage.featuredImage] }),
+  },
 };
 
 export default function Page() {
