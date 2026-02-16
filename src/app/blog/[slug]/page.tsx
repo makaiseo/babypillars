@@ -76,8 +76,35 @@ export default async function BlogPostPage({ params }: Props) {
 
   const relatedSlugs = getRelatedPosts(slug, post.category);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image.startsWith("http")
+      ? post.image
+      : `https://babypillars.com${post.image}`,
+    ...(post.date ? { datePublished: post.date } : {}),
+    author: {
+      "@type": "Person",
+      name: "Anat Furstenberg",
+      url: "https://babypillars.com/about-babypillars",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "BabyPillars",
+      url: "https://babypillars.com",
+      logo: "https://babypillars.com/logo.png",
+    },
+    mainEntityOfPage: `https://babypillars.com/blog/${slug}`,
+  };
+
   return (
     <article className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Back link */}
       <div className="max-w-3xl mx-auto px-6 pt-8">
         <Link

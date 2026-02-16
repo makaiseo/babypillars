@@ -10,8 +10,44 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "BabyPillars Membership",
+    description:
+      "Expert-guided developmental roadmap for your baby's first 0-24 months. Environment-first system with weekly focus plans.",
+    brand: {
+      "@type": "Organization",
+      name: "BabyPillars",
+    },
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Monthly Membership",
+        price: "9",
+        priceCurrency: "USD",
+        priceValidUntil: "2026-12-31",
+        availability: "https://schema.org/InStock",
+        url: "https://babypillars.com/pricing",
+      },
+      {
+        "@type": "Offer",
+        name: "Annual Membership",
+        price: "97",
+        priceCurrency: "USD",
+        priceValidUntil: "2026-12-31",
+        availability: "https://schema.org/InStock",
+        url: "https://babypillars.com/pricing",
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="pt-20 pb-16 hero-pattern">
         <div className="max-w-7xl mx-auto px-6 text-center">

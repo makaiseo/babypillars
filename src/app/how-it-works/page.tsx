@@ -11,8 +11,35 @@ export const metadata: Metadata = {
 };
 
 export default function HowItWorksPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Am I doing enough for my baby's development?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Development isn't about doing more; it's about doing the right things at the right time.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is my baby developing normally?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Every baby has a unique pace, but the sequence of milestones remains the same. We focus on the sequence.",
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-20 pb-24 overflow-hidden hero-pattern">
         <div className="max-w-7xl mx-auto px-6 relative z-10">

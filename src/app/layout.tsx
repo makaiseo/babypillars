@@ -28,6 +28,10 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://babypillars.com"),
+  alternates: {
+    canonical: "./",
+  },
   title: "BabyPillars - Stop Guessing, Start Knowing",
   description:
     "Our environment-first system replaces parental anxiety with clinical clarity. A simple roadmap for your baby's unique development from 0-24 months.",
@@ -43,6 +47,40 @@ export default function RootLayout({
       <body
         className={`${instrumentSerif.variable} ${inter.variable} bg-background-light text-slate-800 font-sans antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  name: "BabyPillars",
+                  url: "https://babypillars.com",
+                  logo: "https://babypillars.com/logo.png",
+                  description:
+                    "Our environment-first system replaces parental anxiety with clinical clarity. A simple roadmap for your baby's unique development from 0-24 months.",
+                  founder: {
+                    "@type": "Person",
+                    name: "Anat Furstenberg",
+                  },
+                },
+                {
+                  "@type": "WebSite",
+                  name: "BabyPillars",
+                  url: "https://babypillars.com",
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target:
+                      "https://babypillars.com/blog?q={search_term_string}",
+                    "query-input":
+                      "required name=search_term_string",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
         <Navbar />
         {children}
         <Footer />
