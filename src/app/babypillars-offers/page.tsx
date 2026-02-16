@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   title: "BabyPillars Offers - Special Deals on Baby Development Programs",
   description:
     "Explore BabyPillars special offers and bundles. Get expert-guided baby development programs, private sessions with Anat, and the full 0-24 month roadmap at the best prices.",
+  openGraph: {
+    title: "BabyPillars Offers - Special Deals on Baby Development Programs",
+    description:
+      "Explore BabyPillars special offers and bundles. Get expert-guided baby development programs, private sessions with Anat, and the full 0-24 month roadmap at the best prices.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BabyPillars Offers - Special Deals on Baby Development Programs",
+    description:
+      "Explore BabyPillars special offers and bundles. Get expert-guided baby development programs, private sessions with Anat, and the full 0-24 month roadmap at the best prices.",
+  },
 };
 
 const offers = [
@@ -300,6 +311,19 @@ export default function OffersPage() {
         </div>
       </section>
 
+      {/* Free Resources */}
+      <section className="py-12 bg-white border-t border-slate-100">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="text-slate-600 mb-4">Not ready to commit? Explore our free resources:</p>
+          <div className="flex flex-wrap justify-center gap-6 text-sm font-medium">
+            <Link href="/milestone-tracker" className="text-primary hover:underline">Milestone Tracker</Link>
+            <Link href="/blog" className="text-primary hover:underline">Development Blog</Link>
+            <Link href="/books" className="text-primary hover:underline">Free Books</Link>
+            <Link href="/about-babypillars" className="text-primary hover:underline">About Us</Link>
+          </div>
+        </div>
+      </section>
+
       {/* Special Needs */}
       <section className="py-24 bg-background-light">
         <div className="max-w-4xl mx-auto px-6">
@@ -315,9 +339,14 @@ export default function OffersPage() {
               </h3>
               <p className="text-slate-600 leading-relaxed mb-4">
                 BabyPillars offers specialized guidance for babies with
-                conditions like torticollis, plagiocephaly, Down syndrome, and
-                more. Our private sessions provide tailored, one-on-one support
-                from Anat.
+                conditions like{" "}
+                <Link href="/torticollis" className="text-primary hover:underline">torticollis</Link>,
+                plagiocephaly,{" "}
+                <Link href="/special-needs-baby/down-syndrome-in-babies" className="text-primary hover:underline">Down syndrome</Link>,{" "}
+                <Link href="/special-needs-baby/cerebral-palsy-in-babies" className="text-primary hover:underline">cerebral palsy</Link>,
+                and more. Our{" "}
+                <Link href="/private-online-sessions" className="text-primary hover:underline">private sessions</Link>{" "}
+                provide tailored, one-on-one support from Anat.
               </p>
               <Link
                 href="/special-needs-baby"

@@ -59,13 +59,19 @@ export default function HomePage() {
               </ul>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/how-it-works"
+                  href="/babypillars-24-bundle"
                   className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg shadow-primary/20 text-center"
                 >
-                  See How BabyPillars Works{" "}
+                  Get Started Today{" "}
                   <span className="block text-sm font-normal opacity-80">
                     (Plans start at $9/month or $97/year)
                   </span>
+                </Link>
+                <Link
+                  href="/milestone-tracker"
+                  className="border-2 border-slate-200 hover:border-primary text-slate-700 px-8 py-4 rounded-full font-bold text-lg transition-all text-center"
+                >
+                  Free Milestone Tracker
                 </Link>
               </div>
             </div>
@@ -419,9 +425,14 @@ export default function HomePage() {
               </h2>
               <div className="space-y-6 text-lg text-white/90 leading-relaxed">
                 <p>
-                  BabyPillars was created by a developmental specialist with 15+
-                  years of experience working with babiesincluding babies
-                  with special needs.
+                  BabyPillars was created by{" "}
+                  <Link href="/about-babypillars" className="underline text-white hover:text-white/80">
+                    a developmental specialist
+                  </Link>{" "}
+                  with 15+ years of experience working with babies — including{" "}
+                  <Link href="/special-needs-baby" className="underline text-white hover:text-white/80">
+                    babies with special needs
+                  </Link>.
                 </p>
                 <p>
                   This system isn&apos;t built on trends or hacks.{" "}
@@ -477,44 +488,66 @@ export default function HomePage() {
               You start where your baby is today.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             {[
               {
                 range: "0–3 Months",
                 title: "The Foundation",
                 desc: "Comfort, regulation, early movement foundations.",
+                href: "/0-3-months-baby",
               },
               {
                 range: "3–6 Months",
                 title: "The Explorer",
                 desc: "Tummy time, rolling readiness, body awareness.",
+                href: "/3-6-months-baby",
               },
               {
                 range: "6–9 Months",
                 title: "The Mover",
                 desc: "Sitting foundations, crawling readiness, exploration.",
+                href: "/6-9-months-baby",
               },
               {
-                range: "9–24 Months",
+                range: "9–12 Months",
                 title: "The Discoverer",
-                desc: "Mobility, coordination, independence, confidence.",
+                desc: "Mobility, coordination, and growing independence.",
+                href: "/9-12-months-baby",
+              },
+              {
+                range: "12–24 Months",
+                title: "The Adventurer",
+                desc: "Walking, language, fine motor skills, confidence.",
+                href: "/12-24-months-baby",
               },
             ].map((stage) => (
-              <div
+              <Link
                 key={stage.range}
-                className="bg-background-light p-8 rounded-3xl border border-slate-100 hover:border-primary transition-colors cursor-default"
+                href={stage.href}
+                className="bg-background-light p-8 rounded-3xl border border-slate-100 hover:border-primary transition-colors block"
               >
                 <p className="text-primary font-bold mb-2">{stage.range}</p>
                 <h5 className="text-xl font-display mb-4">{stage.title}</h5>
                 <p className="text-sm text-slate-600">{stage.desc}</p>
-              </div>
+              </Link>
             ))}
           </div>
           <div className="text-center mt-12">
-            <p className="text-lg text-slate-700 font-medium">
+            <p className="text-lg text-slate-700 font-medium mb-6">
               The system stays the same.{" "}
               <span className="text-primary">Only the focus changes.</span>
             </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <Link href="/blog" className="text-primary hover:underline font-medium">
+                Read our blog &rarr;
+              </Link>
+              <Link href="/books" className="text-primary hover:underline font-medium">
+                Free books &rarr;
+              </Link>
+              <Link href="/milestone-tracker" className="text-primary hover:underline font-medium">
+                Milestone tracker &rarr;
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -550,10 +583,10 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-8">
             <Link
-              href="/pricing"
+              href="/babypillars-24-bundle"
               className="text-primary font-medium hover:underline"
             >
-              View the BabyPillars Program &rarr;
+              View the Full BabyPillars Program &rarr;
             </Link>
           </div>
         </div>
@@ -808,10 +841,10 @@ export default function HomePage() {
           that.
         </p>
         <Link
-          href="/how-it-works"
+          href="/babypillars-24-bundle"
           className="inline-block bg-primary hover:bg-primary/90 text-white px-12 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-xl"
         >
-          See the BabyPillars Program
+          Get the BabyPillars Program
         </Link>
         <p className="mt-6 text-sm text-white/50">
           (Plans start at $9/month or $97/year)
