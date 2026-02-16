@@ -9,10 +9,9 @@ const navLinks = [
   { href: "/babypillars-24-bundle", label: "Bundle" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/milestone-tracker", label: "Milestones" },
+  { href: "/special-needs-baby", label: "Special Needs" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-  { href: "/blog", label: "Blog" },
+  { href: "/about-babypillars", label: "About" },
 ];
 
 export default function Navbar() {
@@ -32,7 +31,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={
-                pathname === link.href
+                pathname === link.href || pathname.startsWith(link.href + "/")
                   ? "text-primary font-semibold"
                   : "hover:text-primary transition-colors"
               }

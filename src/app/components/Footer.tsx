@@ -9,27 +9,19 @@ export default function Footer() {
           <Link href="/">
             <Image src="/logo.png" alt="BabyPillars" width={120} height={40} className="h-10 w-auto" />
           </Link>
-          <div className="flex gap-8 text-sm text-slate-500">
-            <Link className="hover:text-primary transition-colors" href="/privacy">
-              Privacy
+          <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500">
+            <Link className="hover:text-primary transition-colors" href="/terms-conditions">
+              Terms &amp; Privacy
             </Link>
-            <Link className="hover:text-primary transition-colors" href="/terms">
-              Terms
-            </Link>
-            <Link
-              className="hover:text-primary transition-colors"
-              href="/contact"
-            >
+            <Link className="hover:text-primary transition-colors" href="/contact">
               Contact
             </Link>
-            <a
-              className="hover:text-primary transition-colors"
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
+            <Link className="hover:text-primary transition-colors" href="/blog">
+              Blog
+            </Link>
+            <Link className="hover:text-primary transition-colors" href="/books">
+              Books
+            </Link>
           </div>
           <p className="text-sm text-slate-400">
             &copy; {new Date().getFullYear()} BabyPillars. All rights reserved.

@@ -107,7 +107,44 @@ function extractQuickLinks(html: string): { quickLinks: QuickLink[]; cleanedHtml
   return { quickLinks, cleanedHtml };
 }
 
+function stripWordPressJunk(html: string): string {
+  // Remove WP footer and everything after it (scripts, tracking, etc.)
+  html = html.replace(/<(?:footer|div)[^>]*id="thrive-footer"[\s\S]*$/i, "");
+  // Remove all <script> tags
+  html = html.replace(/<script[\s\S]*?<\/script>/gi, "");
+  // Remove all <style> blocks
+  html = html.replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "");
+  // Remove everything from start through </header> (old WP nav)
+  html = html.replace(/^[\s\S]*?<\/header>/i, "");
+  // Remove WP nav menu block (logo, hamburger, nav links) - for pages without <header>
+  html = html.replace(/<a[^>]*href="https?:\/\/babypillars\.com"[^>]*>[\s\S]*?<\/a>/gi, "");
+  html = html.replace(/<ul id="m-[^"]*">[\s\S]*?<\/ul>\s*<\/div>\s*<\/div>/gi, "");
+  // Remove empty WP content wrappers
+  html = html.replace(/<div id="content">[\s\S]*?<section><\/section>[\s\S]*?<\/div>/gi, "");
+  // Remove WP tve_flt/tve_editor wrapper divs
+  html = html.replace(/<div id="tve_flt"><div id="tve_editor">/gi, "");
+  // Remove trailing section/div wrappers
+  html = html.replace(/<\/div><\/div>\s*<\/section>\s*(<\/div>\s*)*$/i, "");
+  // Remove SVG elements (decorative WP SVGs)
+  html = html.replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, "");
+  // Remove hidden WP elements
+  html = html.replace(/<div[^>]*class=['"][^'"]*xlwcty[^'"]*['"][^>]*>[\s\S]*?<\/div>/gi, "");
+  // Remove links to old babypillars.com (nav remnants)
+  html = html.replace(/<a[^>]*href="javascript:void\(0\)"[^>]*>[\s\S]*?<\/a>/gi, "");
+  // Replace WP emoji images with their alt text (actual emoji characters)
+  html = html.replace(/<img[^>]*class="[^"]*wp-smiley[^"]*"[^>]*alt="([^"]*)"[^>]*\/?>/gi, "$1");
+  html = html.replace(/<img[^>]*src="https?:\/\/s\.w\.org\/images\/core\/emoji\/[^"]*"[^>]*alt="([^"]*)"[^>]*\/?>/gi, "$1");
+  html = html.replace(/<img[^>]*alt="([^"]*)"[^>]*src="https?:\/\/s\.w\.org\/images\/core\/emoji\/[^"]*"[^>]*\/?>/gi, "$1");
+  // Downgrade H1 tags in content to H2 (page title already provides the H1)
+  html = html.replace(/<h1([^>]*)>/gi, "<h2$1>");
+  html = html.replace(/<\/h1>/gi, "</h2>");
+  // Clean up empty div wrappers at start
+  html = html.replace(/^(\s*<div[^>]*>\s*)+(?=<[^d]|<div[^>]*(?:id|class))/i, "");
+  return html.trim();
+}
+
 function parseHtmlContent(html: string): ParsedContent {
+  html = stripWordPressJunk(html);
   const sections: Section[] = [];
   const keyTakeaways: string[] = [];
   const faqs: FAQ[] = [];
