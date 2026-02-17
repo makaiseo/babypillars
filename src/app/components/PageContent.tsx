@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BlogArticleContent from "@/app/blog/components/BlogArticleContent";
+import SectionBadge from "@/app/components/SectionBadge";
 import CTASection from "@/app/components/CTASection";
 
 interface PageData {
@@ -13,52 +14,54 @@ interface PageData {
 
 export default function PageContent({ page }: { page: PageData }) {
   return (
-    <article className="bg-white">
-      {/* Header */}
-      <header className="max-w-3xl mx-auto px-6 pt-12 pb-6">
-        <span className="inline-block py-1 px-4 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 uppercase tracking-wider">
-          {page.category}
-        </span>
-        <h1 className="text-4xl md:text-5xl font-display leading-[1.15] text-slate-900">
-          {page.title}
-        </h1>
-        {page.metaDescription && (
-          <p className="text-lg text-slate-500 mt-4 leading-relaxed">
-            {page.metaDescription}
-          </p>
-        )}
+    <article>
+      {/* Hero Header */}
+      <header className="pt-20 pb-16 hero-pattern">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-3xl">
+            <SectionBadge text={page.category} />
+            <h1 className="text-5xl md:text-7xl font-display leading-[1.1] text-slate-900 mb-8">
+              {page.title}
+            </h1>
+            {page.metaDescription && (
+              <p className="text-xl text-slate-600 leading-relaxed">
+                {page.metaDescription}
+              </p>
+            )}
+          </div>
+        </div>
       </header>
 
-      {/* Featured Image */}
-      {page.featuredImage && (
-        <div className="max-w-3xl mx-auto px-6 pb-10">
-          <img
-            alt={page.title}
-            className="w-full aspect-[16/9] object-cover rounded-2xl"
-            src={page.featuredImage}
-          />
-        </div>
-      )}
-
       {/* Article Content */}
-      <div className="max-w-3xl mx-auto px-6 pb-16">
-        <BlogArticleContent htmlContent={page.htmlContent} />
-      </div>
+      <section className="py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6">
+          <BlogArticleContent htmlContent={page.htmlContent} />
+        </div>
+      </section>
 
       {/* CTA */}
-      <CTASection>
-        <h2 className="text-3xl md:text-4xl font-display mb-4">
+      <CTASection variant="green">
+        <h2 className="text-4xl md:text-5xl font-display mb-6">
           Ready to Support Your Baby&apos;s Development?
         </h2>
-        <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-          Join thousands of parents using BabyPillars&apos; evidence-based approach.
+        <p className="text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Join thousands of parents using BabyPillars&apos; evidence-based
+          approach to child development.
         </p>
-        <Link
-          href="/pricing"
-          className="inline-block bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-white/90 transition-colors"
-        >
-          Get Started
-        </Link>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href="/anat-furstenberg-first-step"
+            className="bg-white text-primary hover:bg-slate-100 px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-xl"
+          >
+            Schedule a Session
+          </Link>
+          <Link
+            href="/pricing"
+            className="bg-transparent border-2 border-white/30 hover:bg-white/10 text-white px-10 py-4 rounded-full font-bold text-lg transition-all"
+          >
+            View Pricing
+          </Link>
+        </div>
       </CTASection>
     </article>
   );

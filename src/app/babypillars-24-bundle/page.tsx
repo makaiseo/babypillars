@@ -139,9 +139,6 @@ export default function BundlePage() {
             >
               Join BabyPillars Today
             </Link>
-            <p className="mt-3 text-sm text-slate-500">
-              Signup now - No credit card needed!
-            </p>
           </div>
         </div>
       </section>
@@ -434,9 +431,6 @@ export default function BundlePage() {
           >
             Join BabyPillars Today
           </Link>
-          <p className="text-sm text-slate-500">
-            Signup now - No credit card needed!
-          </p>
         </div>
       </section>
 
@@ -582,9 +576,6 @@ export default function BundlePage() {
           >
             Join BabyPillars Now
           </Link>
-          <p className="mt-3 text-sm text-slate-500">
-            Signup now - No credit card needed!
-          </p>
         </div>
       </section>
 
@@ -660,9 +651,6 @@ export default function BundlePage() {
           >
             Join BabyPillars Now
           </Link>
-          <p className="mt-4 text-sm text-white/60">
-            Signup now - No credit card needed!
-          </p>
         </div>
       </section>
     </>

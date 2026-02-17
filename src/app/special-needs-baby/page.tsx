@@ -126,7 +126,7 @@ export default function SpecialNeedsBabyPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-20 pb-16 hero-pattern">
+      <section className="pt-20 pb-24 hero-pattern">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl">
             <SectionBadge text="Special Needs" />
@@ -158,7 +158,7 @@ export default function SpecialNeedsBabyPage() {
               <span className="text-primary font-bold text-sm uppercase tracking-widest mb-4 block">
                 A Personal Note from Anat
               </span>
-              <div className="space-y-5 text-lg text-slate-600 leading-relaxed">
+              <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
                 <p>
                   I specialize in working with children who have developmental
                   delays and special needs, which encompass a wide range of
@@ -223,10 +223,10 @@ export default function SpecialNeedsBabyPage() {
       {/* How We Get Started */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-4xl font-display text-slate-900 mb-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-display text-slate-900 mb-8 text-center leading-[1.1]">
             How Do We Get Started?
           </h2>
-          <div className="space-y-5 text-lg text-slate-600 leading-relaxed">
+          <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
             <p>
               After our initial conversation, I will provide you with a
               questionnaire. Once you complete it, along with sharing relevant
@@ -254,7 +254,7 @@ export default function SpecialNeedsBabyPage() {
               life.
             </p>
             <p className="font-semibold text-slate-900">
-              &mdash; Anat Furstenberg
+              Anat Furstenberg
             </p>
           </div>
           <div className="flex justify-center mt-10">
@@ -271,7 +271,11 @@ export default function SpecialNeedsBabyPage() {
       {/* For Parents */}
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6">
-          <div className="space-y-5 text-lg text-slate-600 leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-display text-slate-900 mb-8 leading-[1.1]">
+            A Guide for{" "}
+            <span className="italic text-primary">Every Parent</span>
+          </h2>
+          <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
             <p>
               As a parent, it can be devastating to learn that your baby has a
               developmental delay or a special need. You may feel lost,
@@ -290,7 +294,7 @@ export default function SpecialNeedsBabyPage() {
             </p>
             <p className="font-medium text-slate-900">
               Don&apos;t let your baby&apos;s developmental delay or special need
-              hold them back &mdash; learn more about the different conditions
+              hold them back, learn more about the different conditions
               that can affect your child&apos;s development and get the
               information and support you need to help them thrive.
             </p>
@@ -301,7 +305,7 @@ export default function SpecialNeedsBabyPage() {
       {/* Conditions Directory */}
       <section className="py-24 bg-background-light">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-4xl font-display text-slate-900 mb-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-display text-slate-900 mb-4 text-center leading-[1.1]">
             Developmental Conditions &amp; Resources
           </h2>
           <p className="text-slate-600 text-center mb-14 max-w-2xl mx-auto">
@@ -336,7 +340,7 @@ export default function SpecialNeedsBabyPage() {
       {/* What's In It For You */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-display text-center text-slate-900 mb-16">
+          <h2 className="text-4xl md:text-5xl font-display text-center text-slate-900 mb-16 leading-[1.1]">
             What&apos;s In It For You And Your Baby
           </h2>
           <div className="grid md:grid-cols-3 gap-12">
@@ -363,7 +367,7 @@ export default function SpecialNeedsBabyPage() {
                     {item.icon}
                   </span>
                 </div>
-                <h4 className="text-xl font-bold mb-3 text-slate-900">
+                <h4 className="text-2xl font-display mb-4 text-slate-900">
                   {item.title}
                 </h4>
                 <p className="text-slate-600">{item.desc}</p>
@@ -376,7 +380,7 @@ export default function SpecialNeedsBabyPage() {
       {/* Testimonials */}
       <section className="py-24 bg-primary/5">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-4xl font-display text-center text-slate-900 mb-16">
+          <h2 className="text-4xl md:text-5xl font-display text-center text-slate-900 mb-16 leading-[1.1]">
             Real Success Stories
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -405,7 +409,7 @@ export default function SpecialNeedsBabyPage() {
       {/* FAQ */}
       <section className="py-24">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-4xl font-display text-center text-slate-900 mb-16">
+          <h2 className="text-4xl md:text-5xl font-display text-center text-slate-900 mb-16 leading-[1.1]">
             Frequently Asked Questions
           </h2>
           <div className="space-y-8">
@@ -440,10 +444,10 @@ export default function SpecialNeedsBabyPage() {
               },
             ].map((faq) => (
               <div key={faq.q}>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                <h3 className="text-xl font-display text-slate-900 mb-3">
                   {faq.q}
                 </h3>
-                <p className="text-slate-600">{faq.a}</p>
+                <p className="text-slate-600 leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -456,7 +460,7 @@ export default function SpecialNeedsBabyPage() {
           Take the First Step Today
         </h2>
         <p className="text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Don&apos;t wait &mdash; take the first step towards a brighter future
+          Don&apos;t wait, take the first step towards a brighter future
           for your child. Schedule a one-on-one session with Anat or explore our
           resources.
         </p>

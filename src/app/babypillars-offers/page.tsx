@@ -45,10 +45,10 @@ const offers = [
     badge: "Best Value",
     title: "Platinum Video Bundle",
     description:
-      "The complete BabyPillars video course library. Every tutorial, every stage, every milestone — yours to keep forever.",
+      "The complete BabyPillars video course library. Every tutorial, every stage, every milestone, yours to keep forever.",
     price: "$197",
     period: " one-time",
-    annualNote: "Lifetime access — no recurring fees",
+    annualNote: "Lifetime access, no recurring fees",
     features: [
       "All video tutorials (0-24 months)",
       "Audio & transcript formats included",
@@ -140,7 +140,7 @@ export default function OffersPage() {
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
             Whether you need a complete roadmap, a focused course, or
-            personalized guidance — we have an option that fits your family.
+            personalized guidance, we have an option that fits your family.
           </p>
         </div>
       </section>
@@ -284,7 +284,7 @@ export default function OffersPage() {
               {
                 icon: "chair",
                 title: "Environment-First",
-                desc: "Set up your home to naturally trigger developmental leaps — no pressure, no drills.",
+                desc: "Set up your home to naturally trigger developmental leaps, no pressure, no drills.",
               },
               {
                 icon: "schedule",

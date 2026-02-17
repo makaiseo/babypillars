@@ -62,10 +62,7 @@ export default function HomePage() {
                   href="/babypillars-24-bundle"
                   className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg shadow-primary/20 text-center"
                 >
-                  Get Started Today{" "}
-                  <span className="block text-sm font-normal opacity-80">
-                    (Plans start at $9/month or $97/year)
-                  </span>
+                  Get Started Today
                 </Link>
                 <Link
                   href="/milestone-tracker"
@@ -372,7 +369,7 @@ export default function HomePage() {
                   {
                     icon: "videocam",
                     title: "Short, Practical Videos",
-                    desc: "What to do and how to do it — no fluff, no hour-long webinars.",
+                    desc: "What to do and how to do it, no fluff, no hour-long webinars.",
                   },
                   {
                     icon: "home_repair_service",
@@ -429,7 +426,7 @@ export default function HomePage() {
                   <Link href="/about-babypillars" className="underline text-white hover:text-white/80">
                     a developmental specialist
                   </Link>{" "}
-                  with 15+ years of experience working with babies — including{" "}
+                  with 15+ years of experience working with babies, including{" "}
                   <Link href="/special-needs-baby" className="underline text-white hover:text-white/80">
                     babies with special needs
                   </Link>.

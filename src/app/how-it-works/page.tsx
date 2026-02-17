@@ -433,15 +433,15 @@ export default function HowItWorksPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <TestimonialCard
               quote="I finally stopped worrying about 'tummy time' and started seeing my baby's actual progress. The clarity is life-changing."
-              author="— Jessica M."
+              author="Jessica M."
             />
             <TestimonialCard
               quote="As a second-time parent, I thought I knew everything. BabyPillars showed me a much calmer way to parent."
-              author="— David L."
+              author="David L."
             />
             <TestimonialCard
               quote="Anat is like the baby whisperer for parents. Her system is simple, logical, and so incredibly reassuring."
-              author="— Sarah K."
+              author="Sarah K."
             />
           </div>
         </div>
