@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import BlogArticleContent from "@/app/blog/components/BlogArticleContent";
 import SectionBadge from "@/app/components/SectionBadge";
 import CTASection from "@/app/components/CTASection";
@@ -18,15 +19,28 @@ export default function PageContent({ page }: { page: PageData }) {
       {/* Hero Header */}
       <header className="pt-20 pb-16 hero-pattern">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="max-w-3xl">
-            <SectionBadge text={page.category} />
-            <h1 className="text-5xl md:text-7xl font-display leading-[1.1] text-slate-900 mb-8">
-              {page.title}
-            </h1>
-            {page.metaDescription && (
-              <p className="text-xl text-slate-600 leading-relaxed">
-                {page.metaDescription}
-              </p>
+          <div className={page.featuredImage ? "grid lg:grid-cols-2 gap-12 items-center" : "max-w-3xl"}>
+            <div>
+              <SectionBadge text={page.category} />
+              <h1 className="text-5xl md:text-7xl font-display leading-[1.1] text-slate-900 mb-8">
+                {page.title}
+              </h1>
+              {page.metaDescription && (
+                <p className="text-xl text-slate-600 leading-relaxed">
+                  {page.metaDescription}
+                </p>
+              )}
+            </div>
+            {page.featuredImage && (
+              <div className="hidden lg:block">
+                <Image
+                  src={page.featuredImage}
+                  alt={page.title}
+                  width={600}
+                  height={400}
+                  className="rounded-3xl shadow-xl object-cover w-full"
+                />
+              </div>
             )}
           </div>
         </div>
@@ -50,10 +64,10 @@ export default function PageContent({ page }: { page: PageData }) {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/anat-furstenberg-first-step"
+            href="/pricing"
             className="bg-white text-primary hover:bg-slate-100 px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-xl"
           >
-            Schedule a Session
+            Get Started
           </Link>
           <Link
             href="/pricing"

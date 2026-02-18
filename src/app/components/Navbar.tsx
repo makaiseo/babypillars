@@ -8,6 +8,7 @@ import { useState } from "react";
 const navLinks = [
   { href: "/babypillars-24-bundle", label: "The Videos" },
   { href: "/how-it-works", label: "How It Works" },
+  { href: "/special-needs-baby", label: "Special Needs" },
   { href: "/milestone-tracker", label: "Milestone Tracker" },
   { href: "/pricing", label: "Pricing" },
   { href: "/about-babypillars", label: "About" },

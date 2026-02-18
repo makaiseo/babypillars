@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 interface Section {
   id: string;
@@ -146,7 +146,8 @@ function stripWordPressJunk(html: string): string {
   html = html.replace(/<img[^>]*src="https?:\/\/s\.w\.org\/images\/core\/emoji\/[^"]*"[^>]*alt="([^"]*)"[^>]*\/?>/gi, "$1");
   html = html.replace(/<img[^>]*alt="([^"]*)"[^>]*src="https?:\/\/s\.w\.org\/images\/core\/emoji\/[^"]*"[^>]*\/?>/gi, "$1");
   // Strip inline style attributes (WP theme styles clash with our design system)
-  html = html.replace(/\s+style="[^"]*"/gi, "");
+  // Handles both double-quoted and single-quoted style values
+  html = html.replace(/\s+style=(?:"[^"]*"|'[^']*')/gi, "");
   // Strip width/height attributes on images (let CSS control sizing)
   html = html.replace(/(<img[^>]*?)\s+width="[^"]*"/gi, "$1");
   html = html.replace(/(<img[^>]*?)\s+height="[^"]*"/gi, "$1");
@@ -155,8 +156,12 @@ function stripWordPressJunk(html: string): string {
   html = html.replace(/<\/h1>/gi, "</h2>");
   // Remove empty paragraphs
   html = html.replace(/<p[^>]*>\s*(&nbsp;|\s)*<\/p>/gi, "");
-  // Remove empty divs
-  html = html.replace(/<div[^>]*>\s*<\/div>/gi, "");
+  // Remove empty divs (multi-pass to collapse nested empties)
+  let prev: string;
+  do {
+    prev = html;
+    html = html.replace(/<div[^>]*>\s*<\/div>/gi, "");
+  } while (html !== prev);
   // Clean up empty div wrappers at start
   html = html.replace(/^(\s*<div[^>]*>\s*)+(?=<[^d]|<div[^>]*(?:id|class))/i, "");
   // Remove orphaned closing tags at the start (causes hydration mismatches)
@@ -390,8 +395,6 @@ export default function BlogArticleContent({
   const { sections, keyTakeaways, faqs, jumpLinks, quickLinks } =
     parseHtmlContent(htmlContent);
   const contentRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -506,23 +509,22 @@ export default function BlogArticleContent({
               {section.title}
             </h2>
           )}
-          {mounted && (
-            <div
-              className="blog-section-content
-                [&_p]:text-lg [&_p]:text-slate-700 [&_p]:leading-relaxed [&_p]:mb-6
-                [&_h3]:text-2xl [&_h3]:font-display [&_h3]:text-slate-900 [&_h3]:mt-10 [&_h3]:mb-4
-                [&_h4]:text-xl [&_h4]:font-display [&_h4]:text-slate-900 [&_h4]:mt-8 [&_h4]:mb-3
-                [&_h5]:text-lg [&_h5]:font-display [&_h5]:text-slate-900 [&_h5]:mt-6 [&_h5]:mb-3
-                [&_strong]:text-slate-900 [&_strong]:font-semibold
-                [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-primary/80
-                [&_ul]:my-6 [&_ul]:pl-6 [&_ul]:list-disc [&_ul]:space-y-2
-                [&_ol]:my-6 [&_ol]:pl-6 [&_ol]:list-decimal [&_ol]:space-y-2
-                [&_li]:text-lg [&_li]:text-slate-700 [&_li]:leading-relaxed
-                [&_img]:rounded-2xl [&_img]:shadow-md [&_img]:my-8 [&_img]:max-w-full [&_img]:h-auto
-                [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-slate-600 [&_blockquote]:my-6"
-              dangerouslySetInnerHTML={{ __html: section.html }}
-            />
-          )}
+          <div
+            suppressHydrationWarning
+            className="blog-section-content
+              [&_p]:text-lg [&_p]:text-slate-700 [&_p]:leading-relaxed [&_p]:mb-6
+              [&_h3]:text-2xl [&_h3]:font-display [&_h3]:text-slate-900 [&_h3]:mt-10 [&_h3]:mb-4
+              [&_h4]:text-xl [&_h4]:font-display [&_h4]:text-slate-900 [&_h4]:mt-8 [&_h4]:mb-3
+              [&_h5]:text-lg [&_h5]:font-display [&_h5]:text-slate-900 [&_h5]:mt-6 [&_h5]:mb-3
+              [&_strong]:text-slate-900 [&_strong]:font-semibold
+              [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-primary/80
+              [&_ul]:my-6 [&_ul]:pl-6 [&_ul]:list-disc [&_ul]:space-y-2
+              [&_ol]:my-6 [&_ol]:pl-6 [&_ol]:list-decimal [&_ol]:space-y-2
+              [&_li]:text-lg [&_li]:text-slate-700 [&_li]:leading-relaxed
+              [&_img]:rounded-2xl [&_img]:shadow-md [&_img]:my-8 [&_img]:max-w-full [&_img]:h-auto
+              [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:pl-6 [&_blockquote]:italic [&_blockquote]:text-slate-600 [&_blockquote]:my-6"
+            dangerouslySetInnerHTML={{ __html: section.html }}
+          />
         </div>
       ))}
 

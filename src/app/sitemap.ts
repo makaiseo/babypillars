@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/private-online-sessions/`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/sleepless-to-sound-sleep-ebook/`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/anat-furstenberg-first-step/`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE_URL}/one-on-one-with-anat-videos/`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/cplp-care/`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/torticollis/`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/torticollis-in-babies-plan/`, changeFrequency: "monthly", priority: 0.6 },

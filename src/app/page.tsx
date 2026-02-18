@@ -75,9 +75,9 @@ export default function HomePage() {
             <div className="relative">
               <div className="absolute -inset-4 bg-primary/5 rounded-3xl transform rotate-3"></div>
               <img
-                alt="Happy baby doing tummy time on a clean, bright floor"
-                className="relative rounded-3xl shadow-2xl w-full aspect-[4/5] object-cover object-top"
-                src="/hero-baby8.jpg"
+                alt="Mother smiling and holding her baby in a warm nursery"
+                className="relative rounded-3xl shadow-2xl w-full aspect-[4/5] object-cover object-[70%_center]"
+                src="/hero-mother-baby.png"
               />
             </div>
           </div>
