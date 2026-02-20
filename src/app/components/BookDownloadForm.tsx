@@ -13,7 +13,13 @@ const ageRanges = [
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function SessionForm() {
+export default function BookDownloadForm({
+  buttonText,
+  formTitle,
+}: {
+  buttonText: string;
+  formTitle: string;
+}) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -27,7 +33,6 @@ export default function SessionForm() {
       "Last Name": data.get("last-name") as string,
       "Email Address": data.get("email") as string,
       "Baby's Age": data.get("baby-age") as string,
-      "Focus / Message": data.get("message") as string,
     };
 
     try {
@@ -35,7 +40,7 @@ export default function SessionForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          formTitle: "Book a Private Session With Anat",
+          formTitle,
           pageUrl: window.location.href,
           fields,
           submittedAt: new Date().toLocaleString("en-US", {
@@ -59,7 +64,7 @@ export default function SessionForm() {
           <span className="material-symbols-outlined text-primary text-3xl">check_circle</span>
         </div>
         <h3 className="text-2xl font-display text-slate-900 mb-2">Thank you, Sent!</h3>
-        <p className="text-slate-600">Anat will personally reach out within 24 hours to confirm your session.</p>
+        <p className="text-slate-600">Check your inbox — your guide is on its way.</p>
       </div>
     );
   }
@@ -123,22 +128,9 @@ export default function SessionForm() {
           ))}
         </div>
       </div>
-      <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-2" htmlFor="message">
-          What would you like to focus on?{" "}
-          <span className="font-normal text-slate-400">(optional)</span>
-        </label>
-        <textarea
-          className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all resize-none"
-          id="message"
-          name="message"
-          placeholder="Tell Anat about your biggest challenge or question..."
-          rows={3}
-        />
-      </div>
       {status === "error" && (
         <p className="text-red-500 text-sm text-center">
-          Something went wrong. Please try again or email us at info@babypillars.com.
+          Something went wrong. Please try again or contact us at info@babypillars.com.
         </p>
       )}
       <button
@@ -146,10 +138,10 @@ export default function SessionForm() {
         type="submit"
         disabled={status === "submitting"}
       >
-        {status === "submitting" ? "Sending…" : "Book My Session With Anat"}
+        {status === "submitting" ? "Sending…" : buttonText}
       </button>
       <p className="text-xs text-center text-slate-500 mt-4">
-        Anat will personally reach out within 24 hours to confirm your session.
+        We respect your privacy. Unsubscribe at any time.
       </p>
     </form>
   );

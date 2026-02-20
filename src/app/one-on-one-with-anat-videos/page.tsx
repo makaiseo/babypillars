@@ -229,11 +229,7 @@ export default function OneOnOneVideosPage() {
                 key={topic.title}
                 className="flex gap-5 p-8 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all"
               >
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <span className="material-symbols-outlined text-primary text-2xl">
-                    {topic.icon}
-                  </span>
-                </div>
+
                 <div>
                   <h3 className="font-bold text-slate-900 mb-2">{topic.title}</h3>
                   <p className="text-sm text-slate-600 leading-relaxed">

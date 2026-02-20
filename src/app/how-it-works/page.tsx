@@ -54,48 +54,39 @@ export default function HowItWorksPage() {
       {/* Hero */}
       <section className="relative pt-20 pb-24 overflow-hidden hero-pattern">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="max-w-3xl">
-              <SectionBadge text="The System" />
-              <h1 className="text-5xl md:text-7xl font-display leading-[1.1] text-slate-900 mb-8">
-                Stop guessing. Know exactly how to support your baby&apos;s
-                development,{" "}
-                <span className="italic text-primary">week by week.</span>
-              </h1>
-              <p className="text-xl text-slate-600 leading-relaxed mb-10">
-                Your roadmap from birth to 24 months. We take the noise of a
-                thousand &ldquo;tips&rdquo; and turn them into a quiet, clear
-                path forward.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                {[
-                  "Clear guidance",
-                  "Strong Foundations",
-                  "Weekly plans",
-                  "Parental Confidence",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-primary">
-                      check_circle
-                    </span>
-                    <span className="font-medium text-slate-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <Link
-                href="/pricing"
-                className="inline-block bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-full font-bold text-lg transition-all shadow-lg shadow-primary/20"
-              >
-                See How BabyPillars Works
-              </Link>
+          <div className="max-w-3xl mx-auto text-center">
+            <SectionBadge text="The System" />
+            <h1 className="text-5xl md:text-7xl font-display leading-[1.1] text-slate-900 mb-8">
+              Stop guessing. Know exactly how to support your baby&apos;s
+              development,{" "}
+              <span className="italic text-primary">week by week.</span>
+            </h1>
+            <p className="text-xl text-slate-600 leading-relaxed mb-10">
+              Your roadmap from birth to 24 months. We take the noise of a
+              thousand &ldquo;tips&rdquo; and turn them into a quiet, clear
+              path forward.
+            </p>
+            <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto mb-10 text-left">
+              {[
+                "Clear guidance",
+                "Strong Foundations",
+                "Weekly plans",
+                "Parental Confidence",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3 text-slate-700">
+                  <span className="material-symbols-outlined text-primary">
+                    check_circle
+                  </span>
+                  <span className="font-medium">{item}</span>
+                </div>
+              ))}
             </div>
-            <div className="relative hidden lg:block">
-              <img
-                alt="Supportive developmental play"
-                className="rounded-3xl shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 object-cover object-top"
-                src="/anat.jpg"
-              />
-            </div>
+            <Link
+              href="/pricing"
+              className="inline-block bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-full font-bold text-lg transition-all shadow-lg shadow-primary/20"
+            >
+              See How BabyPillars Works
+            </Link>
           </div>
         </div>
       </section>

@@ -336,9 +336,9 @@ export default function HomePage() {
             <div className="relative">
               <div className="bg-slate-200 rounded-3xl p-4 shadow-2xl">
                 <img
-                  alt="BabyPillars system interface"
+                  alt="Mother playing with baby in nursery"
                   className="rounded-2xl w-full"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbboVf4cYC4U6utgZM4NvMHRhO-yUhlq_WxHMSiKktcnP3yR1PDwGohga9uPqkWfSOcRdTOb5xGAOKB01CIAGQwX4JfZIng_miu5OnxctJA3J5GWazLOWDIL86rXrJTK2afa0usb7L3G1DQcsFI4u1e_JZRNytt3YQLDUYXYvr5j6bYSCQScQJdRMn2CA70DsPCAqRgwlLQpbwR7FB4DSL6m79Xp2sOuDVMtpJAJI4P6lKFKcIndS9FYHzWsz8Yk0sQ-01oEo50NuN"
+                  src="/what-you-get.png"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl max-w-[240px]">
@@ -843,9 +843,6 @@ export default function HomePage() {
         >
           Get the BabyPillars Program
         </Link>
-        <p className="mt-6 text-sm text-white/50">
-          (Plans start at $9/month or $97/year)
-        </p>
       </CTASection>
     </>
   );

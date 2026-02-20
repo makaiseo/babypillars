@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { booksPages, booksPagesBySlug } from "@/app/data/booksPages";
-import PageContent from "@/app/components/PageContent";
+import BookPageContent from "@/app/components/BookPageContent";
 
 type Props = {
   params: Promise<{ bookSlug: string }>;
@@ -27,5 +27,5 @@ export default async function DynamicPage({ params }: Props) {
   const { bookSlug } = await params;
   const page = booksPagesBySlug[bookSlug];
   if (!page) notFound();
-  return <PageContent page={page} />;
+  return <BookPageContent page={page} />;
 }

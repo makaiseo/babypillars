@@ -240,9 +240,9 @@ export default function MilestoneTrackerPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img
-                alt="Happy baby playing"
+                alt="Family with baby reading together"
                 className="rounded-2xl shadow-lg aspect-square object-cover object-top"
-                src="/anat.jpg"
+                src="/milestone-family.png"
               />
               <img
                 alt="Parenting moment"

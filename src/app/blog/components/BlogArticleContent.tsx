@@ -197,6 +197,18 @@ function parseHtmlContent(html: string): ParsedContent {
     sections.push({ id: "intro", title: "", html: beforeFirst });
   }
 
+  // Track used IDs to avoid duplicates
+  const usedIds = new Set<string>();
+  const makeUniqueId = (base: string) => {
+    let id = base;
+    let counter = 2;
+    while (usedIds.has(id)) {
+      id = `${base}-${counter++}`;
+    }
+    usedIds.add(id);
+    return id;
+  };
+
   // Process each H2 section
   for (let i = 0; i < h2Matches.length; i++) {
     const match = h2Matches[i];
@@ -206,11 +218,12 @@ function parseHtmlContent(html: string): ParsedContent {
     const sectionHtml = html.substring(startIdx, endIdx)
       .replace(/^(\s*<\/[a-z][a-z0-9]*\s*>\s*)+/i, "").trim();
     const rawTitle = match[1].replace(/<[^>]*>/g, "").trim();
-    const id = rawTitle
+    const baseId = rawTitle
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-|-$/g, "")
       .substring(0, 60);
+    const id = makeUniqueId(baseId);
 
     const isKeyTakeaway = /key\s*take\s*away/i.test(rawTitle);
     const isFaqSection =
