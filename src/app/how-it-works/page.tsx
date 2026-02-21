@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import SectionBadge from "../components/SectionBadge";
 import TestimonialCard from "../components/TestimonialCard";
 import CTASection from "../components/CTASection";
 
 export const metadata: Metadata = {
+  ...canonical('/how-it-works/'),
   title: "BabyPillars - How the System Works",
   description:
     "Your roadmap from birth to 24 months. We take the noise of a thousand tips and turn them into a quiet, clear path forward.",

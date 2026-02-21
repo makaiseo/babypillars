@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import SectionBadge from "../components/SectionBadge";
 import { wpBlogPosts } from "./wpBlogData";
 
 export const metadata: Metadata = {
+  ...canonical('/blog/'),
   title: "Blog - BabyPillars",
   description:
     "Expert insights on baby development, environment-first parenting, and milestone guidance from the BabyPillars team.",
@@ -36,6 +38,7 @@ export default function BlogPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context": "https://schema.org", "@type": "Blog", "name": "BabyPillars Blog", "url": "https://babypillars.com/blog/", "description": "Expert insights on baby development, environment-first parenting, and milestone guidance.", "publisher": {"@type": "Organization", "name": "BabyPillars", "url": "https://babypillars.com"}}) }} />
       {/* Hero */}
       <section className="relative pt-20 pb-24 overflow-hidden hero-pattern">
         <div className="max-w-7xl mx-auto px-6 relative z-10">

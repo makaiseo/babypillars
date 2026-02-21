@@ -39,14 +39,14 @@ export const metadata: Metadata = {
     title: "BabyPillars - Stop Guessing, Start Knowing",
     description:
       "Our environment-first system replaces parental anxiety with clinical clarity. A simple roadmap for your baby's unique development from 0-24 months.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BabyPillars - Baby Development System" }],
+    images: [{ url: "/hero-mother-baby.png", width: 1334, height: 698, alt: "BabyPillars - Baby Development System" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "BabyPillars - Stop Guessing, Start Knowing",
     description:
       "Our environment-first system replaces parental anxiety with clinical clarity. A simple roadmap for your baby's unique development from 0-24 months.",
-    images: ["/og-image.png"],
+    images: ["/hero-mother-baby.png"],
   },
 };
 

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import Link from "next/link";
 import SectionBadge from "@/app/components/SectionBadge";
 import CTASection from "@/app/components/CTASection";
 import PricingCard from "@/app/components/PricingCard";
 
 export const metadata: Metadata = {
+  ...canonical('/9-12-months-baby/'),
   title: "9–12 Month Baby Development Online Home Course - BabyPillars",
   description:
     "Discover professional, fun activities tailored to your 9–12 month baby's milestones and developmental needs. Guide your baby through standing, first steps, and growing independence.",
@@ -102,6 +104,7 @@ const stages = [
 export default function Page() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context": "https://schema.org", "@type": "Course", "name": "9-12 Months Baby Development", "url": "https://babypillars.com/9-12-months-baby/", "description": "Environment-first online baby development course by BabyPillars specialist Anat Furstenberg.", "provider": {"@type": "Organization", "name": "BabyPillars", "url": "https://babypillars.com"}, "offers": {"@type": "Offer", "price": "9", "priceCurrency": "USD", "url": "https://babypillars.com/pricing/"}, "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online"}}) }} />
       {/* Hero */}
       <section className="relative pt-16 pb-24 hero-pattern overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 relative z-10">

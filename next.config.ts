@@ -22,6 +22,11 @@ const nextConfig: NextConfig = {
       { source: "/yt-3-6-free-video/", destination: "/", statusCode: 301 },
       { source: "/yt-6-9-free-video/", destination: "/", statusCode: 301 },
 
+      // Course sub-pages & product pages → pricing (301 Moved Permanently)
+      { source: "/courses/:path*/", destination: "/pricing/", statusCode: 301 },
+      { source: "/product/:path*/", destination: "/pricing/", statusCode: 301 },
+      { source: "/home-22/", destination: "/", statusCode: 301 },
+
       // Quiz & courses → contextual destinations (301 Moved Permanently)
       { source: "/courses/", destination: "/how-it-works/", statusCode: 301 },
       { source: "/quiz-by-babypillars/", destination: "/", statusCode: 301 },

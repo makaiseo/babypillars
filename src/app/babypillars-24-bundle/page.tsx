@@ -1,8 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import SectionBadge from "../components/SectionBadge";
 
 export const metadata: Metadata = {
+  ...canonical('/babypillars-24-bundle/'),
   title: "BabyPillars Bundle 0-24 Months Platinum Video Course",
   description:
     "Welcome to Babypillars Bundle. This page is our 0-24 months platinum video course for parents and babies in the first 2 years of life.",

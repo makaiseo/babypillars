@@ -5,6 +5,29 @@ import { wpBlogPostsBySlug, wpBlogPosts } from "../wpBlogData";
 import BlogArticleContent from "../components/BlogArticleContent";
 import { parseHtmlContent } from "../../lib/parseArticle";
 
+const META_OVERRIDES: Record<string, { title: string; description: string }> = {
+  babyhandsmouth: {
+    title: "Baby Eating Hands at 3-4 Months: Normal or Teething? | BabyPillars",
+    description:
+      "Your baby aggressively chewing their hands is completely normal — here's what it means, when it's a hunger cue, and what you should do about it.",
+  },
+  "baby-cradling-important": {
+    title: "Why Cradling Your Baby Matters for Brain & Motor Development | BabyPillars",
+    description:
+      "Cradling isn't just comforting — it directly shapes your baby's motor milestones and sensory development. Expert guide from Anat Furstenberg.",
+  },
+  "desanto-shinawi-in-babies": {
+    title: "DeSanto-Shinawi Syndrome in Babies: Signs, Development & Support | BabyPillars",
+    description:
+      "Complete guide to DeSanto-Shinawi syndrome in infants — causes, developmental impacts, therapies, and how to support your baby's milestones.",
+  },
+  "when-do-babies-eyes-change-color": {
+    title: "When Do Babies' Eyes Change Color? (Timeline + What Parents Ask) | BabyPillars",
+    description:
+      "Most babies' eyes change color between 6–12 months. Here's the exact timeline, what affects eye color, and when it's permanent.",
+  },
+};
+
 function getPost(slug: string) {
   return wpBlogPostsBySlug[slug] ?? null;
 }
@@ -40,22 +63,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogImage = post.image.startsWith("http")
     ? post.image
     : `https://babypillars.com${post.image}`;
+  const override = META_OVERRIDES[slug];
+  const title = override?.title ?? `${post.title} | BabyPillars`;
+  const description = override?.description ?? post.excerpt;
   return {
-    title: `${post.title} - BabyPillars Blog`,
-    description: post.excerpt,
+    title,
+    description,
     alternates: {
       canonical: `https://babypillars.com/blog/${slug}/`,
     },
     openGraph: {
       type: "article",
-      title: `${post.title} - BabyPillars Blog`,
-      description: post.excerpt,
+      title,
+      description,
       images: [{ url: ogImage }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${post.title} - BabyPillars Blog`,
-      description: post.excerpt,
+      title,
+      description,
       images: [ogImage],
     },
   };
@@ -121,12 +147,31 @@ export default async function BlogPostPage({ params }: Props) {
     mainEntityOfPage: `https://babypillars.com/blog/${slug}`,
   };
 
+  const faqJsonLd =
+    parsedContent.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: parsedContent.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: { "@type": "Answer", text: faq.answer },
+          })),
+        }
+      : null;
+
   return (
     <article className="bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       {/* Back link */}
       <div className="max-w-3xl mx-auto px-6 pt-8">
         <Link
@@ -189,6 +234,28 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Article Content */}
       <div className="max-w-3xl mx-auto px-6 pb-16">
         <BlogArticleContent parsedContent={parsedContent} />
+      </div>
+
+      {/* Post CTA */}
+      <div className="max-w-3xl mx-auto px-6 pb-8">
+        <div className="rounded-2xl bg-primary/10 border border-primary/20 p-8 text-center">
+          <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">
+            Want to go deeper?
+          </p>
+          <h3 className="text-2xl font-display text-slate-900 mb-3">
+            Get the full development system for your baby
+          </h3>
+          <p className="text-slate-600 mb-6 max-w-md mx-auto">
+            Week-by-week guidance, milestone tracking, and expert video classes — all in one place.
+          </p>
+          <Link
+            href="/pricing/"
+            className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-8 py-3 rounded-full hover:bg-primary/90 transition-colors"
+          >
+            See Plans &amp; Pricing
+            <span className="material-symbols-outlined text-lg">arrow_forward</span>
+          </Link>
+        </div>
       </div>
 
       {/* You May Also Like */}

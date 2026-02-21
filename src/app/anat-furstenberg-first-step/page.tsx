@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import SectionBadge from "../components/SectionBadge";
 import CTASection from "../components/CTASection";
 import SessionForm from "./SessionForm";
 
 export const metadata: Metadata = {
+  ...canonical('/anat-furstenberg-first-step/'),
   title: "Private Online Sessions With Anat Furstenberg - BabyPillars",
   description:
     "Schedule your private online session with Anat Furstenberg. Hourly basis or 4–8 hour packages using the First Step method for your baby's development.",

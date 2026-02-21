@@ -1,7 +1,29 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import SectionBadge from "./components/SectionBadge";
 import PricingCard from "./components/PricingCard";
 import CTASection from "./components/CTASection";
+import { canonical } from "./lib/seo";
+
+export const metadata: Metadata = {
+  ...canonical("/"),
+  title: "Baby Development System for 0-24 Months | BabyPillars",
+  description:
+    "BabyPillars is the environment-first baby development system that shows you exactly what to do week by week, from birth to 24 months. Stop guessing. Start knowing.",
+  openGraph: {
+    title: "Baby Development System for 0-24 Months | BabyPillars",
+    description:
+      "BabyPillars is the environment-first baby development system that shows you exactly what to do week by week, from birth to 24 months.",
+    images: [
+      {
+        url: "/hero-mother-baby.png",
+        width: 1334,
+        height: 698,
+        alt: "BabyPillars Baby Development System",
+      },
+    ],
+  },
+};
 
 export default function HomePage() {
   return (
@@ -13,8 +35,8 @@ export default function HomePage() {
             <div>
               <SectionBadge text="Environment-First System" />
               <h1 className="text-6xl md:text-7xl font-display leading-[1.1] text-slate-900 mb-8">
-                Stop Guessing. Know Exactly What To Do{" "}
-                <span className="italic text-primary">This Week.</span>
+                The Baby Development System That Shows You{" "}
+                <span className="italic text-primary">Exactly What To Do This Week.</span>
               </h1>
               <p className="text-xl text-slate-600 leading-relaxed mb-8 max-w-xl">
                 BabyPillars is an environment-first baby development system that

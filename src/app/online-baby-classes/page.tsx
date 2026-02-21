@@ -1,20 +1,22 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import SectionBadge from "../components/SectionBadge";
 import CTASection from "../components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Online Baby Classes - BabyPillars",
+  ...canonical('/online-baby-classes/'),
+  title: "Online Baby Development Classes with Expert Specialist | BabyPillars",
   description:
     "The new age of online baby classes. With BabyPillars online baby classes you will get personalized support, a real person to talk to, and much more.",
   openGraph: {
-    title: "Online Baby Classes - BabyPillars",
+    title: "Online Baby Development Classes with Expert Specialist | BabyPillars",
     description:
       "The new age of online baby classes. With BabyPillars online baby classes you will get personalized support, a real person to talk to, and much more.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Online Baby Classes - BabyPillars",
+    title: "Online Baby Development Classes with Expert Specialist | BabyPillars",
     description:
       "The new age of online baby classes. With BabyPillars online baby classes you will get personalized support, a real person to talk to, and much more.",
   },
@@ -95,6 +97,7 @@ const steps = [
 export default function OnlineBabyClassesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context": "https://schema.org", "@type": "Course", "name": "Online Baby Development Classes", "url": "https://babypillars.com/online-baby-classes/", "description": "Expert-led online baby development classes covering milestones from birth to 24 months.", "provider": {"@type": "Organization", "name": "BabyPillars", "url": "https://babypillars.com"}, "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "online", "instructor": {"@type": "Person", "name": "Anat Furstenberg", "url": "https://babypillars.com/about-babypillars"}}}) }} />
       {/* Hero */}
       <section className="relative pt-20 pb-24 overflow-hidden hero-pattern">
         <div className="max-w-7xl mx-auto px-6 relative z-10">

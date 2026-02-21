@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import SectionBadge from "../components/SectionBadge";
 import CTASection from "../components/CTASection";
 
 export const metadata: Metadata = {
+  ...canonical('/about-babypillars/'),
   title: "About BabyPillars - Our Story & Mission",
   description:
     "Every parent deserves to feel like they have a roadmap. Learn about BabyPillars and founder Anat Furstenberg's mission to replace guessing with clarity.",

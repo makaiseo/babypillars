@@ -14,6 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${page.title} - BabyPillars`,
     description: page.metaDescription || "",
+    alternates: { canonical: `https://babypillars.com/special-needs-baby/${condition}/` },
   };
 }
 
@@ -27,5 +28,19 @@ export default async function DynamicPage({ params }: Props) {
   const { condition } = await params;
   const page = specialNeedsPagesBySlug[condition];
   if (!page) notFound();
-  return <PageContent page={page} />;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    name: page!.title,
+    description: page!.metaDescription || "",
+    url: `https://babypillars.com/special-needs-baby/${condition}/`,
+    about: { "@type": "MedicalCondition", name: page!.title },
+    author: { "@type": "Person", name: "Anat Furstenberg", url: "https://babypillars.com/about-babypillars" },
+  };
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <PageContent page={page!} />
+    </>
+  );
 }

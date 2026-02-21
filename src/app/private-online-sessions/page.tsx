@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import SectionBadge from "../components/SectionBadge";
 import CTASection from "../components/CTASection";
 import SessionForm from "../anat-furstenberg-first-step/SessionForm";
 
 export const metadata: Metadata = {
+  ...canonical('/private-online-sessions/'),
   title: "Private Online Sessions - BabyPillars",
   description:
     "Book a private online session with Anat Furstenberg. Get personalised, expert guidance for your baby's development, face to face, from anywhere in the world.",
@@ -32,6 +34,7 @@ export const metadata: Metadata = {
 export default function PrivateOnlineSessionsPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context": "https://schema.org", "@type": "Service", "name": "Private Online Baby Development Sessions", "url": "https://babypillars.com/private-online-sessions/", "description": "One-on-one online sessions with baby development specialist Anat Furstenberg.", "provider": {"@type": "Organization", "name": "BabyPillars", "url": "https://babypillars.com"}, "serviceType": "Baby Development Consultation", "areaServed": "Worldwide"}) }} />
       {/* Hero */}
       <section className="relative pt-20 pb-24 overflow-hidden hero-pattern">
         <div className="max-w-7xl mx-auto px-6 relative z-10">

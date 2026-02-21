@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import Link from "next/link";
 import SectionBadge from "../components/SectionBadge";
 import CTASection from "../components/CTASection";
 
 export const metadata: Metadata = {
+  ...canonical('/special-needs-baby/'),
   title:
     "Special Needs Baby - The Ultimate Resource to Development Delays | BabyPillars",
   description:
@@ -120,11 +122,48 @@ const conditions = [
     description:
       "A term used when children are significantly delayed in their cognitive and physical development compared to their peers.",
   },
+  {
+    slug: "cp-center-specialist",
+    name: "CP Center or Specialist",
+    description:
+      "Guidance on finding the right cerebral palsy center or specialist near you, and what to look for when choosing a care team for your baby.",
+  },
+  {
+    slug: "cp-baby-birth",
+    name: "CP and Baby Birth",
+    description:
+      "What parents need to know about the connection between birth events and cerebral palsy, including risk factors and early signs to watch for.",
+  },
+  {
+    slug: "cp-help-assistance",
+    name: "CP Help and Assistance",
+    description:
+      "A guide to the support resources, programs, and assistance available for babies with cerebral palsy and their families.",
+  },
+  {
+    slug: "cp-therapy",
+    name: "CP Therapy",
+    description:
+      "An overview of therapy approaches for babies with cerebral palsy, including physical, occupational, and speech therapy options.",
+  },
+  {
+    slug: "cp-treatment",
+    name: "CP Treatment",
+    description:
+      "A comprehensive look at cerebral palsy treatment options for infants and young children, from medical interventions to developmental support.",
+  },
+  {
+    slug: "cp-care",
+    name: "CP Care",
+    description:
+      "Day-to-day care strategies and best practices for parents raising a baby with cerebral palsy, covering feeding, positioning, and home routines.",
+  },
 ];
 
 export default function SpecialNeedsBabyPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context": "https://schema.org", "@type": "MedicalWebPage", "name": "Special Needs Baby - The Ultimate Resource to Development Delays", "description": "A complete guide to your special needs baby. Expert guidance on developmental delays.", "url": "https://babypillars.com/special-needs-baby/", "about": {"@type": "MedicalCondition", "name": "Developmental Delays in Infants"}, "author": {"@type": "Person", "name": "Anat Furstenberg", "url": "https://babypillars.com/about-babypillars"}}) }} />
       {/* Hero */}
       <section className="pt-20 pb-24 hero-pattern">
         <div className="max-w-7xl mx-auto px-6">

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import { standalonePagesBySlug } from "@/app/data/standalonePages";
 import PageContent from "@/app/components/PageContent";
 
 const page = standalonePagesBySlug["torticollis"];
 
 export const metadata: Metadata = {
+  ...canonical('/torticollis/'),
   title: page?.title ? `${page.title} - BabyPillars` : "BabyPillars",
   description: page?.metaDescription || "",
   openGraph: {
@@ -22,5 +24,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   if (!page) return null;
-  return <PageContent page={page} />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context": "https://schema.org", "@type": "MedicalWebPage", "name": "Torticollis in Babies - Guide for Parents", "url": "https://babypillars.com/torticollis/", "description": "Expert guide to torticollis in babies - causes, symptoms, exercises, and treatment.", "about": {"@type": "MedicalCondition", "name": "Torticollis"}, "author": {"@type": "Person", "name": "Anat Furstenberg", "url": "https://babypillars.com/about-babypillars"}}) }} />
+      <PageContent page={page} />
+    </>
+  );
 }

@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import SectionBadge from "../components/SectionBadge";
 import CTASection from "../components/CTASection";
 import MilestoneForm from "./MilestoneForm";
 
 export const metadata: Metadata = {
+  ...canonical('/milestone-tracker/'),
   title: "Free Milestone Tracker - BabyPillars",
   description:
     "Track your baby's milestones without pressure or guesswork. Our comprehensive 0-24 month tracker provides a clinical-grade roadmap simplified for real-life parenting.",
@@ -24,6 +26,7 @@ export const metadata: Metadata = {
 export default function MilestoneTrackerPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context": "https://schema.org", "@type": "WebApplication", "name": "BabyPillars Milestone Tracker", "url": "https://babypillars.com/milestone-tracker/", "description": "Free baby milestone tracker to see which developmental milestones your baby should be hitting.", "applicationCategory": "HealthApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "provider": {"@type": "Organization", "name": "BabyPillars", "url": "https://babypillars.com"}}) }} />
       {/* Hero */}
       <section className="relative pt-20 pb-24 overflow-hidden hero-pattern">
         <div className="max-w-7xl mx-auto px-6 relative z-10">

@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import SectionBadge from "../components/SectionBadge";
 import CTASection from "../components/CTASection";
 
 export const metadata: Metadata = {
+  ...canonical('/pricing/'),
   title: "BabyPillars Pricing - Choose Your Path to Clarity",
   description:
     "Parenting shouldn't be a series of guesses. Get the expert system you need to support your baby's development with confidence and ease.",
@@ -22,6 +24,28 @@ export const metadata: Metadata = {
 };
 
 export default function PricingPage() {
+  const courseSchemas = [
+    { name: "0-3 Months Milestone Mastery" },
+    { name: "3-6 Months Milestone Mastery" },
+    { name: "6-9 Months Milestone Mastery" },
+    { name: "9-12 Months Milestone Mastery" },
+  ].map((c) => ({
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: c.name,
+    provider: {
+      "@type": "Organization",
+      name: "BabyPillars",
+      url: "https://babypillars.com",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "9",
+      priceCurrency: "USD",
+      url: "https://babypillars.com/pricing/",
+    },
+  }));
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -60,6 +84,13 @@ export default function PricingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {courseSchemas.map((schema, i) => (
+        <script
+          key={i}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       {/* Hero */}
       <section className="pt-20 pb-16 hero-pattern">
         <div className="max-w-7xl mx-auto px-6 text-center">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import Link from "next/link";
 import { standalonePagesBySlug } from "@/app/data/standalonePages";
 import PageContent from "@/app/components/PageContent";
@@ -8,6 +9,7 @@ const landingPage = standalonePagesBySlug["parent-learning-hub"] || null;
 const childSlugs = ["growth-spurts-in-babies"];
 
 export const metadata: Metadata = {
+  ...canonical('/parent-learning-hub/'),
   title: landingPage?.title ? `${landingPage.title} - BabyPillars` : "Parent Learning Hub - BabyPillars",
   description: landingPage?.metaDescription || "",
   openGraph: {

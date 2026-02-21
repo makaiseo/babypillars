@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import Link from "next/link";
 import Image from "next/image";
 import { booksPages, booksPagesBySlug } from "@/app/data/booksPages";
@@ -8,6 +9,7 @@ import CTASection from "@/app/components/CTASection";
 const landingPage = booksPagesBySlug["books"] || null;
 
 export const metadata: Metadata = {
+  ...canonical('/books/'),
   title: "Books & Resources - BabyPillars",
   description:
     landingPage?.metaDescription ||

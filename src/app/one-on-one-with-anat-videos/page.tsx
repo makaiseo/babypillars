@@ -1,10 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { canonical } from '../lib/seo';
 import SectionBadge from "../components/SectionBadge";
 import CTASection from "../components/CTASection";
 import SessionForm from "../anat-furstenberg-first-step/SessionForm";
 
 export const metadata: Metadata = {
+  ...canonical('/one-on-one-with-anat-videos/'),
   title: "One-on-One With Anat Videos: Watch Live Session Recordings | BabyPillars",
   description:
     "Watch recorded one-on-one sessions where Anat Furstenberg works directly with BabyPillars parents. See the First Step method in action and book your own private session.",
