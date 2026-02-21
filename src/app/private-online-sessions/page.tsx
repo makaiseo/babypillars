@@ -7,11 +7,11 @@ import SessionForm from "../anat-furstenberg-first-step/SessionForm";
 export const metadata: Metadata = {
   title: "Private Online Sessions - BabyPillars",
   description:
-    "Book a private online session with Anat Furstenberg. Get personalised, expert guidance for your baby's development — face to face, from anywhere in the world.",
+    "Book a private online session with Anat Furstenberg. Get personalised, expert guidance for your baby's development, face to face, from anywhere in the world.",
   openGraph: {
     title: "Private Online Sessions - BabyPillars",
     description:
-      "Book a private online session with Anat Furstenberg. Get personalised, expert guidance for your baby's development — face to face, from anywhere in the world.",
+      "Book a private online session with Anat Furstenberg. Get personalised, expert guidance for your baby's development, face to face, from anywhere in the world.",
     images: [
       {
         url: "/pages/anat-furstenberg-first-step/featured-anat-pic1_adobespark-e1632143681545.png",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Private Online Sessions - BabyPillars",
     description:
-      "Book a private online session with Anat Furstenberg. Get personalised, expert guidance for your baby's development — face to face, from anywhere in the world.",
+      "Book a private online session with Anat Furstenberg. Get personalised, expert guidance for your baby's development, face to face, from anywhere in the world.",
   },
 };
 
@@ -48,14 +48,14 @@ export default function PrivateOnlineSessionsPage() {
               </p>
               <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
                 Every baby is different. A private session gives you direct,
-                expert eyes on your child — so you stop guessing and start
+                expert eyes on your child, so you stop guessing and start
                 acting with real confidence.
               </p>
               <div className="space-y-4 mb-10">
                 {[
                   "Live, one-on-one video session with Anat herself",
                   "Fully personalised to your baby's age, stage, and environment",
-                  "Walk away with a clear, actionable plan — not more overwhelm",
+                  "Walk away with a clear, actionable plan, not more overwhelm",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
@@ -114,7 +114,7 @@ export default function PrivateOnlineSessionsPage() {
                 <li className="flex gap-4">
                   <span className="material-symbols-outlined text-red-400">close</span>
                   <p className="text-slate-600">
-                    No one watching your baby move — so nothing gets caught
+                    No one watching your baby move, so nothing gets caught
                     early and nothing gets corrected.
                   </p>
                 </li>
@@ -149,7 +149,7 @@ export default function PrivateOnlineSessionsPage() {
                 <li className="flex gap-4">
                   <span className="material-symbols-outlined text-primary">check_circle</span>
                   <p className="text-slate-800 font-medium">
-                    You leave with a calm, clear next step — and the confidence
+                    You leave with a calm, clear next step and the confidence
                     to take it.
                   </p>
                 </li>
@@ -170,7 +170,7 @@ export default function PrivateOnlineSessionsPage() {
               {
                 icon: "person_search",
                 title: "Live Assessment",
-                desc: "Anat watches your baby move and play in real time — spotting patterns no article could ever catch.",
+                desc: "Anat watches your baby move and play in real time, spotting patterns no article could ever catch.",
               },
               {
                 icon: "lightbulb",
@@ -219,7 +219,7 @@ export default function PrivateOnlineSessionsPage() {
                 {[
                   "You&apos;ve noticed something in your baby&apos;s movement or behaviour and **want a specialist to take a look**.",
                   "You feel overwhelmed by conflicting advice and just want to know **what to actually do this week**.",
-                  "You want to **set up your home correctly** to support development — and get it right the first time.",
+                  "You want to **set up your home correctly** to support development and get it right the first time.",
                   "You value **direct, expert guidance** tailored to your baby over generic content built for everyone.",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
@@ -425,7 +425,7 @@ export default function PrivateOnlineSessionsPage() {
                 Your Specialist
               </span>
               <h3 className="text-3xl font-display text-slate-900 mb-4">
-                You work directly with Anat — not an assistant.
+                You work directly with Anat, not an assistant.
               </h3>
               <p className="text-lg text-slate-600 mb-4 max-w-2xl leading-relaxed">
                 Every private session is led by{" "}

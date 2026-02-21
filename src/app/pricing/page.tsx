@@ -115,9 +115,9 @@ export default function PricingPage() {
                   <span>Cancel anytime with one click</span>
                 </li>
               </ul>
-              <button className="w-full py-4 px-6 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary/5 transition-colors">
+              <Link href="/babypillars-login" className="w-full py-4 px-6 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary/5 transition-colors text-center block">
                 Start Monthly Membership
-              </button>
+              </Link>
             </div>
 
             {/* Annual */}
@@ -165,9 +165,9 @@ export default function PricingPage() {
                   <span>Annual bonus: Environmental Audit guide</span>
                 </li>
               </ul>
-              <button className="w-full py-4 px-6 rounded-full bg-primary text-white font-bold hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all">
+              <Link href="/babypillars-login" className="w-full py-4 px-6 rounded-full bg-primary text-white font-bold hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all text-center block">
                 Start Annual Membership
-              </button>
+              </Link>
             </div>
           </div>
           <p className="text-center mt-8 text-slate-500 text-sm flex items-center justify-center gap-2">
@@ -398,12 +398,12 @@ export default function PricingPage() {
           clearer, calmer way to support their child&apos;s growth.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-white text-primary hover:bg-slate-100 px-10 py-4 rounded-full font-bold text-lg transition-all">
+          <Link href="/babypillars-login" className="bg-white text-primary hover:bg-slate-100 px-10 py-4 rounded-full font-bold text-lg transition-all">
             Monthly - $9
-          </button>
-          <button className="bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white px-10 py-4 rounded-full font-bold text-lg transition-all">
+          </Link>
+          <Link href="/babypillars-login" className="bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white px-10 py-4 rounded-full font-bold text-lg transition-all">
             Annual - $97 (Best Value)
-          </button>
+          </Link>
         </div>
       </CTASection>
     </>

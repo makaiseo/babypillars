@@ -70,7 +70,7 @@ const testimonials = [
     name: "Maria Martins",
     location: "CA",
     image: "/bundle/Anna-Smith-BF-book.png",
-    text: "As for the session with Anat, she was well prepared for it, she knew my son's problems and conditions. Anat gave me very specific advice on how to deal with my son's sleeping problems. She answered all my questions and concerns. Anat had a personal approach — she tried to find out what was causing the problems specifically in our case.",
+    text: "As for the session with Anat, she was well prepared for it, she knew my son's problems and conditions. Anat gave me very specific advice on how to deal with my son's sleeping problems. She answered all my questions and concerns. Anat had a personal approach, she tried to find out what was causing the problems specifically in our case.",
   },
 ];
 

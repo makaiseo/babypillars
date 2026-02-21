@@ -64,7 +64,7 @@ export default function BookDownloadForm({
           <span className="material-symbols-outlined text-primary text-3xl">check_circle</span>
         </div>
         <h3 className="text-2xl font-display text-slate-900 mb-2">Thank you, Sent!</h3>
-        <p className="text-slate-600">Check your inbox — your guide is on its way.</p>
+        <p className="text-slate-600">Check your inbox, your guide is on its way.</p>
       </div>
     );
   }

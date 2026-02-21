@@ -34,7 +34,7 @@ function buildEmailHtml(
         <!-- Header -->
         <tr>
           <td style="background:#54A388;padding:28px 32px;border-radius:12px 12px 0 0;">
-            <p style="margin:0 0 4px;color:rgba(255,255,255,0.75);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;">BabyPillars — New Form Submission</p>
+            <p style="margin:0 0 4px;color:rgba(255,255,255,0.75);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;">BabyPillars: New Form Submission</p>
             <h1 style="margin:0;color:#ffffff;font-size:22px;font-weight:700;">${formTitle}</h1>
           </td>
         </tr>
@@ -110,7 +110,7 @@ export async function POST(req: NextRequest) {
     const { error } = await resend.emails.send({
       from: FROM_EMAIL,
       to: TO_EMAIL,
-      subject: `[BabyPillars] ${formTitle} — ${senderEmail}`,
+      subject: `[BabyPillars] ${formTitle}: ${senderEmail}`,
       html: buildEmailHtml(formTitle, pageUrl, fields, submittedAt),
     });
 

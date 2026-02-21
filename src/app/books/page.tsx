@@ -42,7 +42,7 @@ export default function Page() {
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
               A curated reading list on baby development, movement, and
-              parenting — selected to support the BabyPillars approach.
+              parenting, selected to support the BabyPillars approach.
             </p>
           </div>
         </div>

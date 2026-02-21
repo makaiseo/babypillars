@@ -25,31 +25,31 @@ const bookFormContent: Record<string, BookFormContent> = {
   "milestones-for-0-24-month-babies": {
     title: "Get the Free Milestones Guide (0–24 Months)",
     description:
-      "Download your comprehensive guide to baby milestones and know exactly what to expect at every stage — without the overwhelm.",
+      "Download your comprehensive guide to baby milestones and know exactly what to expect at every stage, without the overwhelm.",
     buttonText: "Send Me the Free Milestones Guide",
   },
   "free-book-download": {
     title: "Get Your Free Baby Development Guide",
     description:
-      "Join thousands of parents with our complete 0–24 month development guide — delivered straight to your inbox.",
+      "Join thousands of parents with our complete 0-24 month development guide, delivered straight to your inbox.",
     buttonText: "Send Me the Free Guide",
   },
   "raising-a-healthy-eater": {
     title: "Get the Free Healthy Eater Guide",
     description:
-      "Download our complete guide to feeding your baby from birth to toddlerhood — practical, pressure-free steps for every stage.",
+      "Download our complete guide to feeding your baby from birth to toddlerhood, practical, pressure-free steps for every stage.",
     buttonText: "Send Me the Healthy Eater Guide",
   },
   "from-sleepless-to-sound-sleep-free-downloadable-book": {
     title: "Get the Free Sleep Guide",
     description:
-      "Download your step-by-step guide to building healthy sleep habits for your baby — and finally get the rest your family deserves.",
+      "Download your step-by-step guide to building healthy sleep habits for your baby and finally get the rest your family deserves.",
     buttonText: "Send Me the Sleep Guide",
   },
   "breast-feeding-secrets-free-downloadable-book": {
     title: "Get the Free Breastfeeding Secrets Guide",
     description:
-      "Download the complete breastfeeding guide trusted by thousands of moms — everything you need to know, in one place.",
+      "Download the complete breastfeeding guide trusted by thousands of moms, everything you need to know, in one place.",
     buttonText: "Send Me the Breastfeeding Guide",
   },
   "parenting-version-3-downloadable-book": {

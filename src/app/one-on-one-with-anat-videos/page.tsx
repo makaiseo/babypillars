@@ -5,11 +5,11 @@ import CTASection from "../components/CTASection";
 import SessionForm from "../anat-furstenberg-first-step/SessionForm";
 
 export const metadata: Metadata = {
-  title: "One-on-One With Anat Videos — Watch Live Session Recordings | BabyPillars",
+  title: "One-on-One With Anat Videos: Watch Live Session Recordings | BabyPillars",
   description:
     "Watch recorded one-on-one sessions where Anat Furstenberg works directly with BabyPillars parents. See the First Step method in action and book your own private session.",
   openGraph: {
-    title: "One-on-One With Anat Videos — Watch Live Session Recordings | BabyPillars",
+    title: "One-on-One With Anat Videos: Watch Live Session Recordings | BabyPillars",
     description:
       "Watch recorded one-on-one sessions where Anat Furstenberg works directly with BabyPillars parents. See the First Step method in action and book your own private session.",
     images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "One-on-One With Anat Videos — Watch Live Session Recordings | BabyPillars",
+    title: "One-on-One With Anat Videos: Watch Live Session Recordings | BabyPillars",
     description:
       "Watch recorded one-on-one sessions where Anat Furstenberg works directly with BabyPillars parents. See the First Step method in action and book your own private session.",
   },
@@ -323,16 +323,16 @@ export default function OneOnOneVideosPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { id: "LwemrgofzUE", title: "Stages of Crawling — Pre Crawling Tips and Exercises" },
+              { id: "LwemrgofzUE", title: "Stages of Crawling: Pre Crawling Tips and Exercises" },
               { id: "P077h0Jy9u8", title: "How To Help My Baby To Crawl? And How To Encourage Crawling" },
               { id: "TiDc41CNNEo", title: "Why Does My Baby Refuse To Sleep?" },
-              { id: "E6trngobk4Y", title: "Your Baby's Daily Schedule — Explained" },
-              { id: "LNe0WqeBbFU", title: "Baby Teething — Why Do My Baby's Teeth Hurt at Night?" },
+              { id: "E6trngobk4Y", title: "Your Baby's Daily Schedule: Explained" },
+              { id: "LNe0WqeBbFU", title: "Baby Teething: Why Do My Baby's Teeth Hurt at Night?" },
               { id: "4m-4OAEUA7I", title: "Simple Tip For Your Baby's Eating Issues" },
-              { id: "IWkmBGJ9EaA", title: "3 Month Old Baby Exercise — Baby Sides of Body" },
+              { id: "IWkmBGJ9EaA", title: "3 Month Old Baby Exercise: Baby Sides of Body" },
               { id: "EzzqwmJJEfo", title: "How To Calm a Fussy or Crying Baby and Relieve Tension" },
-              { id: "gLIETofy3Oc", title: "My Baby Does Not Walk Yet — What To Do?" },
-              { id: "uBzpLUU0dzk", title: "Setting Boundaries With Babies — A Different Approach To No" },
+              { id: "gLIETofy3Oc", title: "My Baby Does Not Walk Yet: What To Do?" },
+              { id: "uBzpLUU0dzk", title: "Setting Boundaries With Babies: A Different Approach To No" },
             ].map((video) => (
               <div
                 key={video.id}

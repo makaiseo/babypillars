@@ -43,7 +43,7 @@ export default function AnatFirstStepPage() {
                 <span className="italic text-primary">With Anat</span>
               </h1>
               <p className="text-xl md:text-2xl text-slate-700 font-medium mb-6">
-                Get personalised guidance for your baby&apos;s development — directly from a specialist.
+                Get personalised guidance for your baby&apos;s development, directly from a specialist.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed mb-8 max-w-xl">
                 Through private online sessions using the{" "}
@@ -78,7 +78,7 @@ export default function AnatFirstStepPage() {
             <div className="relative">
               <div className="absolute -inset-4 bg-primary/5 rounded-[40px] transform rotate-3"></div>
               <img
-                alt="Anat Furstenberg — First Step method"
+                alt="Anat Furstenberg, First Step method"
                 className="relative rounded-[32px] shadow-2xl w-full object-cover"
                 src="/pages/anat-furstenberg-first-step/anat-pic1_adobespark-e1632143681545.png"
               />
@@ -213,7 +213,7 @@ export default function AnatFirstStepPage() {
                 {[
                   "You&apos;ve noticed something in your baby&apos;s movement or development and **don&apos;t know if it&apos;s a concern**.",
                   "You&apos;ve read all the articles but still feel **lost on what to actually do** day-to-day.",
-                  "You want to **set up your home correctly** to support your baby — and get it right the first time.",
+                  "You want to **set up your home correctly** to support your baby and get it right the first time.",
                   "You value **direct, expert guidance** over piecing together contradictory advice on your own.",
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
@@ -309,7 +309,7 @@ export default function AnatFirstStepPage() {
               <span className="italic text-primary">that fits your needs.</span>
             </h2>
             <p className="text-lg text-slate-600">
-              Whether you have a single burning question or want comprehensive, ongoing support — there&apos;s a session for you.
+              Whether you have a single burning question or want comprehensive, ongoing support, there&apos;s a session for you.
             </p>
           </div>
         </div>
@@ -426,7 +426,7 @@ export default function AnatFirstStepPage() {
                 </span>
                 , a developmental specialist with over 15 years of clinical
                 experience. In your private session, you work directly with
-                Anat — not an assistant or a bot.
+                Anat, not an assistant or a bot.
               </p>
               <div className="flex flex-wrap gap-4 text-sm font-medium text-slate-500">
                 <span className="flex items-center gap-1">

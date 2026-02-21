@@ -32,7 +32,7 @@ export default function PricingCard({
         </div>
         <p className="text-white/90 mb-8">{description}</p>
         <Link
-          href="/pricing"
+          href="/babypillars-login"
           className="w-full py-3 px-6 rounded-full bg-white text-primary font-bold hover:bg-slate-100 transition-all text-center"
         >
           {buttonText}

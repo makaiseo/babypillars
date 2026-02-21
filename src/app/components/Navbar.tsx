@@ -43,6 +43,14 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4">
           <Link
+            href="/babypillars-login"
+            className={`hidden sm:inline-block px-6 py-2.5 rounded-full font-semibold border-2 border-primary transition-all ${
+              pathname === "/babypillars-login" ? "bg-primary text-white" : "text-primary hover:bg-primary/5"
+            }`}
+          >
+            Login
+          </Link>
+          <Link
             href="/pricing"
             className="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-sm hidden sm:inline-block"
           >
@@ -75,6 +83,13 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/babypillars-login"
+            className="block w-full text-center border-2 border-primary text-primary px-6 py-2.5 rounded-full font-semibold"
+            onClick={() => setMobileOpen(false)}
+          >
+            Login
+          </Link>
           <Link
             href="/pricing"
             className="block w-full text-center bg-primary text-white px-6 py-2.5 rounded-full font-semibold"
