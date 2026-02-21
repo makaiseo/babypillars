@@ -3,6 +3,7 @@ import Image from "next/image";
 import BlogArticleContent from "@/app/blog/components/BlogArticleContent";
 import SectionBadge from "@/app/components/SectionBadge";
 import CTASection from "@/app/components/CTASection";
+import { parseHtmlContent } from "@/app/lib/parseArticle";
 
 interface PageData {
   slug: string;
@@ -14,6 +15,8 @@ interface PageData {
 }
 
 export default function PageContent({ page }: { page: PageData }) {
+  const parsedContent = parseHtmlContent(page.htmlContent);
+
   return (
     <article>
       {/* Hero Header */}
@@ -49,7 +52,7 @@ export default function PageContent({ page }: { page: PageData }) {
       {/* Article Content */}
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6">
-          <BlogArticleContent htmlContent={page.htmlContent} />
+          <BlogArticleContent parsedContent={parsedContent} />
         </div>
       </section>
 

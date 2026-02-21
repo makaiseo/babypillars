@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-import { wpBlogPosts } from "./blog/wpBlogData";
-import { booksPages } from "./data/booksPages";
-import { specialNeedsPages } from "./data/specialNeedsPages";
+import { wpBlogSlugs } from "./blog/wpBlogData";
+import { booksSlugs } from "./data/booksPages";
+import { specialNeedsSlugs } from "./data/specialNeedsPages";
 
 const BASE_URL = "https://babypillars.com";
 
@@ -41,24 +41,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/parent-learning-hub/growth-spurts-in-babies/`, changeFrequency: "monthly", priority: 0.6 },
   ];
 
-  const blogRoutes: MetadataRoute.Sitemap = wpBlogPosts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}/`,
+  const blogRoutes: MetadataRoute.Sitemap = wpBlogSlugs.map((slug) => ({
+    url: `${BASE_URL}/blog/${slug}/`,
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
-  const bookRoutes: MetadataRoute.Sitemap = booksPages
-    .filter((page) => page.slug !== "books")
-    .map((page) => ({
-      url: `${BASE_URL}/books/${page.slug}/`,
+  const bookRoutes: MetadataRoute.Sitemap = booksSlugs
+    .filter((slug) => slug !== "books")
+    .map((slug) => ({
+      url: `${BASE_URL}/books/${slug}/`,
       changeFrequency: "monthly",
       priority: 0.6,
     }));
 
-  const specialNeedsRoutes: MetadataRoute.Sitemap = specialNeedsPages
-    .filter((page) => page.slug !== "special-needs-baby")
-    .map((page) => ({
-      url: `${BASE_URL}/special-needs-baby/${page.slug}/`,
+  const specialNeedsRoutes: MetadataRoute.Sitemap = specialNeedsSlugs
+    .filter((slug) => slug !== "special-needs-baby")
+    .map((slug) => ({
+      url: `${BASE_URL}/special-needs-baby/${slug}/`,
       changeFrequency: "monthly",
       priority: 0.6,
     }));

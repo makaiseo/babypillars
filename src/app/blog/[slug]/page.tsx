@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { wpBlogPostsBySlug, wpBlogPosts } from "../wpBlogData";
 import BlogArticleContent from "../components/BlogArticleContent";
+import { parseHtmlContent } from "../../lib/parseArticle";
 
 function getPost(slug: string) {
   const wpPost = wpBlogPostsBySlug[slug];
@@ -42,6 +44,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title} - BabyPillars Blog`,
     description: post.excerpt,
+    alternates: {
+      canonical: `https://babypillars.com/blog/${slug}/`,
+    },
   };
 }
 
@@ -75,6 +80,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const relatedSlugs = getRelatedPosts(slug, post.category);
+  const parsedContent = parseHtmlContent(post.htmlContent);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -124,11 +130,13 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Author & Date */}
         <div className="flex items-center gap-3 mt-6">
-          <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden">
-            <img
+          <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center overflow-hidden relative">
+            <Image
               src="/anat.jpg"
               alt="Anat Furstenberg"
-              className="w-full h-full object-cover"
+              fill
+              sizes="40px"
+              className="object-cover"
             />
           </div>
           <div>
@@ -150,16 +158,21 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Featured Image */}
       <div className="max-w-3xl mx-auto px-6 pb-10">
-        <img
-          alt={post.imageAlt || post.title}
-          className="w-full aspect-[16/9] object-cover rounded-2xl"
-          src={post.image}
-        />
+        <div className="aspect-[16/9] relative overflow-hidden rounded-2xl">
+          <Image
+            alt={post.imageAlt || post.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 768px"
+            className="object-cover"
+            src={post.image}
+            priority
+          />
+        </div>
       </div>
 
       {/* Article Content */}
       <div className="max-w-3xl mx-auto px-6 pb-16">
-        <BlogArticleContent htmlContent={post.htmlContent} />
+        <BlogArticleContent parsedContent={parsedContent} />
       </div>
 
       {/* You May Also Like */}
@@ -178,11 +191,15 @@ export default async function BlogPostPage({ params }: Props) {
                   href={`/blog/${relatedSlug}`}
                   className="group flex gap-5 items-start bg-white rounded-2xl p-4 border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all"
                 >
-                  <img
-                    alt={related.title}
-                    className="w-28 h-20 md:w-36 md:h-24 rounded-xl object-cover shrink-0"
-                    src={related.image}
-                  />
+                  <div className="w-28 h-20 md:w-36 md:h-24 rounded-xl overflow-hidden shrink-0 relative">
+                    <Image
+                      alt={related.title}
+                      fill
+                      sizes="144px"
+                      className="object-cover"
+                      src={related.image}
+                    />
+                  </div>
                   <div className="min-w-0 py-1">
                     <h3 className="text-lg font-display text-slate-900 group-hover:text-primary transition-colors leading-snug line-clamp-2">
                       {related.title}

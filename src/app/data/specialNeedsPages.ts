@@ -199,3 +199,5 @@ export const specialNeedsPages: PageData[] = [
 export const specialNeedsPagesBySlug: Record<string, PageData> = Object.fromEntries(
   specialNeedsPages.map((page) => [page.slug, page])
 );
+
+export const specialNeedsSlugs: string[] = specialNeedsPages.map((page) => page.slug);

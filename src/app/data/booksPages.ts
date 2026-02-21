@@ -71,3 +71,5 @@ export const booksPages: PageData[] = [
 export const booksPagesBySlug: Record<string, PageData> = Object.fromEntries(
   booksPages.map((page) => [page.slug, page])
 );
+
+export const booksSlugs: string[] = booksPages.map((page) => page.slug);

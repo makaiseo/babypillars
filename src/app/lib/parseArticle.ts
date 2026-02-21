@@ -164,6 +164,18 @@ export function parseHtmlContent(html: string): ParsedContent {
   const beforeFirst = html.substring(0, h2Matches[0].index).replace(/^(\s*<\/[a-z][a-z0-9]*\s*>\s*)+/i, "").trim();
   if (beforeFirst) sections.push({ id: "intro", title: "", html: beforeFirst });
 
+  // Track used IDs to avoid duplicates
+  const usedIds = new Set<string>();
+  const makeUniqueId = (base: string) => {
+    let id = base;
+    let counter = 2;
+    while (usedIds.has(id)) {
+      id = `${base}-${counter++}`;
+    }
+    usedIds.add(id);
+    return id;
+  };
+
   for (let i = 0; i < h2Matches.length; i++) {
     const match = h2Matches[i];
     const nextMatch = h2Matches[i + 1];
@@ -171,7 +183,8 @@ export function parseHtmlContent(html: string): ParsedContent {
     const endIdx = nextMatch ? nextMatch.index! : html.length;
     const sectionHtml = html.substring(startIdx, endIdx).replace(/^(\s*<\/[a-z][a-z0-9]*\s*>\s*)+/i, "").trim();
     const rawTitle = match[1].replace(/<[^>]*>/g, "").trim();
-    const id = rawTitle.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").substring(0, 60);
+    const baseId = rawTitle.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").substring(0, 60);
+    const id = makeUniqueId(baseId);
 
     const isKeyTakeaway = /key\s*take\s*away/i.test(rawTitle);
     const isFaqSection = /frequently\s*asked/i.test(rawTitle) || /^faqs?$/i.test(rawTitle);
@@ -190,6 +203,14 @@ export function parseHtmlContent(html: string): ParsedContent {
           if (text && text.length > 20) keyTakeaways.push(text);
         }
       }
+      // Fallback: strong-text items
+      if (keyTakeaways.length === 0) {
+        const strongMatches = [...sectionHtml.matchAll(/<strong[^>]*>([\s\S]*?)<\/strong>/gi)];
+        for (const s of strongMatches) {
+          const text = s[1].replace(/<[^>]*>/g, "").trim();
+          if (text && text.length > 10) keyTakeaways.push(text);
+        }
+      }
       continue;
     }
 
@@ -202,6 +223,31 @@ export function parseHtmlContent(html: string): ParsedContent {
           const answerEnd = h3Matches[j + 1] ? h3Matches[j + 1].index! : sectionHtml.length;
           const answer = sectionHtml.substring(answerStart, answerEnd).replace(/<[^>]*>/g, "").trim();
           if (question && answer) faqs.push({ question, answer });
+        }
+      } else {
+        // Q. pattern fallback
+        const qPatterns = [...sectionHtml.matchAll(/(?:<p[^>]*>)?\s*(?:Q\.|Q:|Question:?)\s*([\s\S]*?)(?:<\/p>)/gi)];
+        if (qPatterns.length > 0) {
+          for (const qp of qPatterns) {
+            const question = qp[1].replace(/<[^>]*>/g, "").trim();
+            const startPos = sectionHtml.indexOf(qp[0]) + qp[0].length;
+            const nextQ = sectionHtml.indexOf("Q.", startPos);
+            const answer = sectionHtml.substring(startPos, nextQ > -1 ? nextQ : startPos + 500).replace(/<[^>]*>/g, "").trim();
+            if (question && answer) faqs.push({ question, answer });
+          }
+        } else {
+          // Strong-text as questions fallback
+          const strongQMatches = [...sectionHtml.matchAll(/<(?:strong|b)[^>]*>([\s\S]*?)<\/(?:strong|b)>/gi)];
+          if (strongQMatches.length >= 2) {
+            for (let j = 0; j < strongQMatches.length; j++) {
+              const question = strongQMatches[j][1].replace(/<[^>]*>/g, "").trim();
+              if (question.length < 10) continue;
+              const startPos = strongQMatches[j].index! + strongQMatches[j][0].length;
+              const endPos = strongQMatches[j + 1] ? strongQMatches[j + 1].index! : sectionHtml.length;
+              const answer = sectionHtml.substring(startPos, endPos).replace(/<[^>]*>/g, "").trim();
+              if (question && answer) faqs.push({ question, answer });
+            }
+          }
         }
       }
       if (faqs.length > 0) continue;

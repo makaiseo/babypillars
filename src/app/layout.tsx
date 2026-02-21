@@ -30,9 +30,6 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://babypillars.com"),
-  alternates: {
-    canonical: "./",
-  },
   title: "BabyPillars - Stop Guessing, Start Knowing",
   description:
     "Our environment-first system replaces parental anxiety with clinical clarity. A simple roadmap for your baby's unique development from 0-24 months.",
@@ -108,13 +105,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   "@type": "WebSite",
                   name: "BabyPillars",
                   url: "https://babypillars.com",
-                  potentialAction: {
-                    "@type": "SearchAction",
-                    target:
-                      "https://babypillars.com/blog?q={search_term_string}",
-                    "query-input":
-                      "required name=search_term_string",
-                  },
                 },
               ],
             }),

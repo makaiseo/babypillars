@@ -745,3 +745,6 @@ export const wpBlogPosts: WpBlogPost[] = [
 export const wpBlogPostsBySlug: Record<string, WpBlogPost> = Object.fromEntries(
   wpBlogPosts.map((post) => [post.slug, post])
 );
+
+// Slim export for sitemap — avoids loading full HTML content just to extract slugs
+export const wpBlogSlugs: string[] = wpBlogPosts.map((post) => post.slug);

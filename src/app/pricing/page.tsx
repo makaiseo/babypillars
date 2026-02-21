@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import SectionBadge from "../components/SectionBadge";
 import CTASection from "../components/CTASection";
@@ -37,7 +38,7 @@ export default function PricingPage() {
         name: "Monthly Membership",
         price: "9",
         priceCurrency: "USD",
-        priceValidUntil: "2026-12-31",
+        priceValidUntil: `${new Date().getFullYear() + 1}-12-31`,
         availability: "https://schema.org/InStock",
         url: "https://babypillars.com/pricing",
       },
@@ -46,7 +47,7 @@ export default function PricingPage() {
         name: "Annual Membership",
         price: "97",
         priceCurrency: "USD",
-        priceValidUntil: "2026-12-31",
+        priceValidUntil: `${new Date().getFullYear() + 1}-12-31`,
         availability: "https://schema.org/InStock",
         url: "https://babypillars.com/pricing",
       },
@@ -183,10 +184,12 @@ export default function PricingPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-10 p-10 bg-primary/5 rounded-[40px] border border-primary/10">
-            <div className="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
-              <img
+            <div className="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 relative">
+              <Image
                 alt="Anat Furstenberg"
-                className="w-full h-full object-cover rounded-2xl shadow-md"
+                fill
+                sizes="192px"
+                className="object-cover rounded-2xl shadow-md"
                 src="/anat.jpg"
               />
             </div>

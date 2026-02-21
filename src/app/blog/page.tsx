@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import SectionBadge from "../components/SectionBadge";
 import { wpBlogPosts } from "./wpBlogData";
@@ -31,6 +32,8 @@ const posts = wpBlogPosts.map((p) => ({
 }));
 
 export default function BlogPage() {
+  if (!posts.length) return null;
+
   return (
     <>
       {/* Hero */}
@@ -57,10 +60,12 @@ export default function BlogPage() {
             href={`/blog/${posts[0].slug}`}
             className="group grid lg:grid-cols-2 gap-12 items-center"
           >
-            <div className="relative overflow-hidden rounded-3xl">
-              <img
+            <div className="relative overflow-hidden rounded-3xl aspect-[16/10]">
+              <Image
                 alt={posts[0].title}
-                className="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-500"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
                 src={posts[0].image}
               />
               <div className="absolute top-4 left-4">
@@ -102,10 +107,12 @@ export default function BlogPage() {
                 href={`/blog/${post.slug}`}
                 className="group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-primary/30 transition-all hover:shadow-lg"
               >
-                <div className="overflow-hidden">
-                  <img
+                <div className="overflow-hidden aspect-[16/10] relative">
+                  <Image
                     alt={post.title}
-                    className="w-full aspect-[16/10] object-cover group-hover:scale-105 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                     src={post.image}
                   />
                 </div>
