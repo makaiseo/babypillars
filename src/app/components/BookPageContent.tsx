@@ -211,7 +211,7 @@ export default function BookPageContent({ page }: { page: PageData }) {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/pricing"
+            href="/babypillars-24-bundle"
             className="bg-white text-primary hover:bg-slate-100 px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-xl"
           >
             Get Started

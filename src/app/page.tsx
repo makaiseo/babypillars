@@ -27,7 +27,7 @@ export default function HomePage() {
                   Why it works:
                 </p>
                 <p className="text-slate-600 leading-relaxed max-w-xl">
-                  We fix the environment firstso milestones emerge
+                  We fix the environment first so milestones emerge
                   naturally, without drills, pressure, or endless research.
                 </p>
               </div>
@@ -169,7 +169,7 @@ export default function HomePage() {
             <p>
               Milestones don&apos;t happen because you practice harder. They
               happen when your baby&apos;s body and nervous system are
-              readyand the right environment creates that readiness all
+              ready, and the right environment creates that readiness all
               day long.
             </p>
             <p className="text-2xl font-bold text-slate-900">
@@ -229,7 +229,7 @@ export default function HomePage() {
                 3. Weekly Execution
               </h3>
               <p className="text-slate-600">
-                Adjust focus as your baby growsno guessing.
+                Adjust focus as your baby grows — no guessing.
               </p>
             </div>
           </div>
@@ -292,7 +292,7 @@ export default function HomePage() {
                 a milestone.
               </p>
               <p className="text-sm text-slate-500">
-                Development is not fragilethe system protects you from
+                Development is not fragile — the system protects you from
                 doing the wrong thing at the wrong time.
               </p>
             </div>
@@ -304,7 +304,7 @@ export default function HomePage() {
                 Intentional, System-Driven Parents
               </h4>
               <p className="text-slate-600 mb-4">
-                A clear method you can run at homeprinciples, structure,
+                A clear method you can run at home — principles, structure,
                 and weekly execution.
               </p>
               <p className="text-sm text-slate-500">
@@ -398,7 +398,7 @@ export default function HomePage() {
                 ))}
               </div>
               <p className="mt-8 text-lg text-slate-700 font-medium">
-                You stop wondering if you&apos;re doing enoughbecause the
+                You stop wondering if you&apos;re doing enough — because the
                 system tells you exactly what matters.
               </p>
               <Link
@@ -439,7 +439,7 @@ export default function HomePage() {
                 </p>
                 <p>
                   Thousands of parents worldwide use BabyPillars to replace
-                  anxiety with clarityand pressure with confidence.
+                  anxiety with clarity and pressure with confidence.
                 </p>
                 <div className="flex items-center gap-6 pt-4">
                   <div className="text-center">
@@ -701,7 +701,7 @@ export default function HomePage() {
                 </li>
               </ul>
               <p className="mt-6 text-lg text-slate-600 leading-relaxed">
-                And the anxiety doesn&apos;t go awayit just changes
+                And the anxiety doesn&apos;t go away — it just changes
                 shape.
               </p>
             </div>
@@ -715,19 +715,24 @@ export default function HomePage() {
                 </p>
               </div>
               <p className="text-slate-600 leading-relaxed mb-6">
-                Most parents pause right here. They think:
+                With BabyPillars, you get:
               </p>
-              <ul className="space-y-3 text-slate-600 italic">
-                <li>&ldquo;I just need a few more ideas.&rdquo;</li>
-                <li>
-                  &ldquo;Maybe I&apos;ll watch a couple more videos
-                  first.&rdquo;
+              <ul className="space-y-3 text-slate-700">
+                <li className="flex items-start gap-2">
+                  <span className="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+                  <span>A clear weekly focus — no more guessing</span>
                 </li>
-                <li>&ldquo;I&apos;ll come back to this later.&rdquo;</li>
+                <li className="flex items-start gap-2">
+                  <span className="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+                  <span>Guidance on what matters <em>now</em></span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+                  <span>Confidence that replaces anxiety</span>
+                </li>
               </ul>
               <p className="mt-6 text-slate-700 font-medium">
-                That&apos;s exactly what keeps the guessing going. Because the
-                problem was never a lack of tipsit was not having a
+                The problem was never a lack of tips — it was not having a
                 system that tells you what matters now.
               </p>
             </div>

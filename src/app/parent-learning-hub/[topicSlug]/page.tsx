@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { standalonePagesBySlug } from "@/app/data/standalonePages";
+import { standalonePagesBySlug, parentLearningHubSlugs } from "@/app/data/standalonePages";
 import PageContent from "@/app/components/PageContent";
 
 type Props = {
   params: Promise<{ topicSlug: string }>;
 };
-
-const subPages = ["growth-spurts-in-babies"];
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { topicSlug } = await params;
@@ -20,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export function generateStaticParams() {
-  return subPages.map((slug) => ({ topicSlug: slug }));
+  return parentLearningHubSlugs.map((slug) => ({ topicSlug: slug }));
 }
 
 export default async function TopicPage({ params }: Props) {

@@ -95,6 +95,7 @@ export default function ContactForm() {
           id="subject"
           name="subject"
           defaultValue=""
+          required
         >
           <option value="" disabled>Select a topic</option>
           <option value="Developmental Milestones">Developmental Milestones</option>

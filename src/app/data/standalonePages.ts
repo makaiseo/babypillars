@@ -119,3 +119,6 @@ export const standalonePages: PageData[] = [
 export const standalonePagesBySlug: Record<string, PageData> = Object.fromEntries(
   standalonePages.map((page) => [page.slug, page])
 );
+
+// Slugs served under /parent-learning-hub/[topicSlug] — update here to add new topics
+export const parentLearningHubSlugs: string[] = ["growth-spurts-in-babies"];

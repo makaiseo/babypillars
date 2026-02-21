@@ -8,7 +8,7 @@ export default function CTASection({
   const bgClass = variant === "green" ? "bg-primary" : "bg-slate-900";
 
   return (
-    <section className="py-24 bg-background-light">
+    <section className="py-24">
       <div className="max-w-5xl mx-auto px-6">
         <div
           className={`${bgClass} rounded-[40px] p-12 md:p-24 text-center text-white relative overflow-hidden`}

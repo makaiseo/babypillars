@@ -1,15 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-
-const ageRanges = [
-  "0-3 Months",
-  "3-6 Months",
-  "6-9 Months",
-  "9-12 Months",
-  "12-24 Months",
-  "24+ Months",
-];
+import { AGE_RANGES } from "@/app/lib/constants";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -112,22 +104,22 @@ export default function BookDownloadForm({
           required
         />
       </div>
-      <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-4 text-center">
+      <fieldset className="border-0 p-0 m-0">
+        <legend className="block text-sm font-semibold text-slate-700 mb-4 text-center w-full">
           Your baby&apos;s current age
-        </label>
+        </legend>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          {ageRanges.map((range) => (
+          {AGE_RANGES.map((range) => (
             <label
               key={range}
               className="relative flex items-center justify-center p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-primary/5 transition-colors has-[input:checked]:bg-primary has-[input:checked]:border-primary has-[input:checked]:text-white"
             >
-              <input className="sr-only" name="baby-age" type="radio" value={range} />
+              <input className="sr-only" name="baby-age" type="radio" value={range} required />
               <span className="text-sm font-medium">{range}</span>
             </label>
           ))}
         </div>
-      </div>
+      </fieldset>
       {status === "error" && (
         <p className="text-red-500 text-sm text-center">
           Something went wrong. Please try again or contact us at info@babypillars.com.

@@ -140,6 +140,8 @@ export function stripWordPressJunk(html: string): string {
   // Remove any lingering input/textarea/button elements (form remnants)
   html = html.replace(/<(?:input|textarea|select|button|label)[^>]*>[\s\S]*?<\/(?:textarea|select|button|label)>/gi, "");
   html = html.replace(/<(?:input|textarea|select|button|label)[^>]*\/?>/gi, "");
+  // Add lazy loading to images
+  html = html.replace(/<img\b(?![^>]*\bloading=)([^>]*?)\s*\/?>/gi, '<img loading="lazy" decoding="async"$1>');
   return html.trim();
 }
 

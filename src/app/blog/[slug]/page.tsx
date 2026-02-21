@@ -6,11 +6,7 @@ import BlogArticleContent from "../components/BlogArticleContent";
 import { parseHtmlContent } from "../../lib/parseArticle";
 
 function getPost(slug: string) {
-  const wpPost = wpBlogPostsBySlug[slug];
-  if (wpPost) {
-    return { ...wpPost, isOriginal: false as const };
-  }
-  return null;
+  return wpBlogPostsBySlug[slug] ?? null;
 }
 
 function getAllSlugs() {
@@ -41,11 +37,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) {
     return { title: "Post Not Found - BabyPillars Blog" };
   }
+  const ogImage = post.image.startsWith("http")
+    ? post.image
+    : `https://babypillars.com${post.image}`;
   return {
     title: `${post.title} - BabyPillars Blog`,
     description: post.excerpt,
     alternates: {
       canonical: `https://babypillars.com/blog/${slug}/`,
+    },
+    openGraph: {
+      type: "article",
+      title: `${post.title} - BabyPillars Blog`,
+      description: post.excerpt,
+      images: [{ url: ogImage }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} - BabyPillars Blog`,
+      description: post.excerpt,
+      images: [ogImage],
     },
   };
 }
@@ -82,15 +93,20 @@ export default async function BlogPostPage({ params }: Props) {
   const relatedSlugs = getRelatedPosts(slug, post.category);
   const parsedContent = parseHtmlContent(post.htmlContent);
 
+  const postImage = post.image.startsWith("http")
+    ? post.image
+    : `https://babypillars.com${post.image}`;
+  const dateISO = post.date
+    ? (() => { try { return new Date(post.date).toISOString().split("T")[0]; } catch { return undefined; } })()
+    : undefined;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: post.image.startsWith("http")
-      ? post.image
-      : `https://babypillars.com${post.image}`,
-    ...(post.date ? { datePublished: post.date } : {}),
+    image: postImage,
+    ...(dateISO ? { datePublished: dateISO, dateModified: dateISO } : {}),
     author: {
       "@type": "Person",
       name: "Anat Furstenberg",

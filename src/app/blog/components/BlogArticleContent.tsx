@@ -3,13 +3,16 @@
 import { useState } from "react";
 import type { ParsedContent, FAQ } from "@/app/lib/parseArticle";
 
-function FAQItem({ faq }: { faq: FAQ }) {
+function FAQItem({ faq, index }: { faq: FAQ; index: number }) {
   const [open, setOpen] = useState(false);
+  const panelId = `blog-faq-${index}`;
 
   return (
     <div className="border-b border-slate-200 last:border-b-0">
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={panelId}
         className="w-full flex items-start justify-between gap-4 py-5 text-left group"
       >
         <span className="text-lg font-semibold text-slate-900 group-hover:text-primary transition-colors">
@@ -23,11 +26,9 @@ function FAQItem({ faq }: { faq: FAQ }) {
           expand_more
         </span>
       </button>
-      {open && (
-        <div className="pb-5 text-slate-600 leading-relaxed">
-          {faq.answer}
-        </div>
-      )}
+      <div id={panelId} hidden={!open} className="pb-5 text-slate-600 leading-relaxed">
+        {faq.answer}
+      </div>
     </div>
   );
 }
@@ -65,7 +66,7 @@ export default function BlogArticleContent({
   ];
 
   return (
-    <div suppressHydrationWarning>
+    <div>
       {/* Quick Links (styled card with Roman numerals) */}
       {hasQuickLinks && (
         <div className="bg-background-light border border-slate-200 rounded-2xl p-6 md:p-8 mb-10">
@@ -105,13 +106,13 @@ export default function BlogArticleContent({
           </p>
           <div className="flex flex-wrap gap-2">
             {allJumpLinks.map((link) => (
-              <button
+              <a
                 key={link.id}
-                onClick={() => scrollToSection(link.id)}
+                href={`#${link.id}`}
                 className="px-4 py-2 text-sm font-medium rounded-full border border-slate-200 text-slate-700 hover:border-primary hover:text-primary hover:bg-primary/5 transition-all"
               >
                 {link.label}
-              </button>
+              </a>
             ))}
           </div>
         </div>
@@ -143,7 +144,7 @@ export default function BlogArticleContent({
 
       {/* Article Sections */}
       {sections.map((section) => (
-        <div key={section.id} id={section.id} className="scroll-mt-24" suppressHydrationWarning>
+        <div key={section.id} id={section.id} className="scroll-mt-24">
           {section.title && (
             <h2 className="text-3xl md:text-4xl font-display text-slate-900 mt-12 mb-6 first:mt-0">
               {section.title}
@@ -176,7 +177,7 @@ export default function BlogArticleContent({
           </h2>
           <div className="bg-white rounded-2xl border border-slate-200 divide-y divide-slate-200 px-6">
             {faqs.map((faq, i) => (
-              <FAQItem key={i} faq={faq} />
+              <FAQItem key={i} faq={faq} index={i} />
             ))}
           </div>
         </div>
